@@ -1,7 +1,8 @@
 <?php 
+session_start();
 
 $roll = $_POST['roll'];
-$pass =$_POST['password'];
+$pass = $_POST['password'];
 
 $host = "localhost";
 $username = "root";
@@ -19,9 +20,14 @@ if ($result->num_rows > 0) {
 while($row = $result->fetch_assoc()) {
     if ($row["password"] == $pass){
        echo "<script type='text/javascript'>alert('Logged in successfully'); </script>";
+
+    $_SESSION['logged_in__stu_roll'] = $roll;
+    $_SESSION['logged_in_stu_pass'] = $pass;
+
     }
 
     else {
+        session_destroy();
     	echo "<script type='text/javascript'>alert('Wrong login credinals'); </script>";
         echo '<script type="text/javascript"> location.href = "student_login.php" </script>';
     }
@@ -29,6 +35,7 @@ while($row = $result->fetch_assoc()) {
 }
 }
 else {
+      session_destroy();
       echo "<script type='text/javascript'>alert('Wrong login credinals'); </script>";
         echo '<script type="text/javascript"> location.href = "student_login.php" </script>';
 }
