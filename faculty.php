@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 $id = $_POST['id'];
 $pass =$_POST['password'];
@@ -19,9 +20,12 @@ if ($result->num_rows > 0) {
 while($row = $result->fetch_assoc()) {
     if ($row["password"] == $pass){
        echo "<script type='text/javascript'>alert('Logged in successfully'); </script>";
+    $_SESSION['logged_in_fac_id'] = $id;
+    $_SESSION['logged_in_fac_pass'] = $pass;
     }
 
     else {
+        session_destroy();
     	echo "<script type='text/javascript'>alert('Wrong login credinals'); </script>";
         echo '<script type="text/javascript"> location.href = "faculty_login.php" </script>';
     }
@@ -29,8 +33,9 @@ while($row = $result->fetch_assoc()) {
 }
 }
 else {
+      session_destroy();
       echo "<script type='text/javascript'>alert('Wrong login credinals'); </script>";
-        echo '<script type="text/javascript"> location.href = "faculty_login.php" </script>';
+      echo '<script type="text/javascript"> location.href = "faculty_login.php" </script>';
 }
 
 ?>
