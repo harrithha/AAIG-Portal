@@ -1,5 +1,3 @@
-
-
 <?php
 
 session_start();
@@ -14,16 +12,27 @@ $conn = new mysqli($host, $username, $password, $dbname);
 
 $sql = "SELECT * FROM student WHERE rollNo = '$id'";
 $result = $conn->query($sql);
-
+$MA101 = 0;
+$PH101 = 0;
+$BB101 = 0;
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-   echo "Successful !" ;
+  // echo "Successful !" ;
    $p_roll = $row['rollNo'];
    $p_name = $row['name'];
    $p_branch = $row['branch'];
    $p_no_of_courses = $row['noOfCourses'];
-   $p_list_of_courses = $row['listOfCourses'];
+   $p = $row['listOfCourses'];
+   $p_list_of_courses = explode(",",$p);
+   foreach ($p_list_of_courses as $course) {
+    if($course == 'MA_101')
+      $MA101 = 1;
+    elseif($course == 'PH_101')
+      $PH101 = 1;
+    elseif($course == 'BB_101')
+      $BB101 = 1;
+  }
    $p_age = $row['age'];
    $p_bg = $row['bloodGroup'];
    $p_passing_year = $row['passingYear'];
@@ -54,7 +63,7 @@ $conn->close();
 </head>
 <body>
 <div class="edit_details">
-<form action="edit_students_data.php" method="post">
+<form action="edit_student_to_db.php" method="post">
   <div class="form-group">
     <label for="RollNo">Roll Number</label>
     <?php echo"<input type='number' class='form-control'  name='RollNo' placeholder='Enter Roll Number' value='$p_roll'"; ?>
@@ -70,19 +79,19 @@ $conn->close();
   <div class="form-group">
   <label for="List_of_Courses">List of courses taken</label> <hr>
   <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="MA_101" name="course[]">
+  <input class="form-check-input" type="checkbox" <?php echo ($MA101 === 1) ? 'checked' : '';?> value="MA_101" name="course[]">
   <label class="form-check-label" for="MA_101">
     MA 101
   </label>
   </div>
   <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="BB_101" name="course[]">
+  <input class="form-check-input" type="checkbox" <?php echo ($BB101 === 1) ? 'checked' : '';?> value="BB_101" name="course[]">
   <label class="form-check-label" for="BB_101">
     BB 101
   </label>
   </div>
   <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="PH_101" name="course[]">
+  <input class="form-check-input" type="checkbox" <?php echo ($PH101 === 1) ? 'checked' : '';?> value="PH_101" name="course[]">
   <label class="form-check-label" for="PH_101">
     PH 101
   </label>

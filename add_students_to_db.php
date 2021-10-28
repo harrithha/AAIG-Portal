@@ -26,7 +26,7 @@ $list_of_c = '';
 if(!empty($_POST['course'])) {
 
     foreach($_POST['course'] as $value){
-        $list_of_c .= "$value, " ;
+        $list_of_c .= "$value," ;
     }
 
 }
@@ -37,7 +37,7 @@ $passing_year = $_POST['Passing_Year'];
 $program = $_POST['Program'];
 $ph_no = $_POST['Phone'];
 $DOB = $_POST['DOB'];
-$list_of_courses = substr($list_of_c, 0, -2);
+$list_of_courses = substr($list_of_c, 0, -1);
 
 $sql = "INSERT INTO student (rollNo, name, password, noOfCourses, listOfCourses, age, bloodGroup, branch, 
 passingYear, programme, phone, dob) VALUES ('$roll','$name', '$password','$no_of_courses','$list_of_courses','$age',
