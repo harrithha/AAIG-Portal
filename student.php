@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-$roll = $_POST['roll'];
+$roll = $_POST['rollNo'];
 $pass = $_POST['password'];
 
 $host = "localhost";
@@ -28,7 +28,7 @@ while($row = $result->fetch_assoc()) {
 
     else {
         session_destroy();
-    	echo "<script type='text/javascript'>alert('Wrong login credinals'); </script>";
+    	echo "<script type='text/javascript'>alert('Wrong login credinals!!'); </script>";
         echo '<script type="text/javascript"> location.href = "student_login.php" </script>';
     }
 

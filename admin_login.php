@@ -7,7 +7,7 @@
 <body>
 	<h1>Admin Login </h1>
 	<form action="admin.php" method="post"> 
-		username : <input type="text" name="username"><br><br>
+		username : <input type="text" name="username" value="me"><br><br>
 		password : <input type="password" name="password"><br><br>
 		<input type="submit" value="login">
 	</form><br><br>
