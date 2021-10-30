@@ -1,8 +1,6 @@
 <?php
-
 session_start();
-$id = $_SESSION['logged_in__stu_roll'];
-
+$id = $_POST['RollNo']
 $host = "localhost";
 $username = "root";
 $password = "";
