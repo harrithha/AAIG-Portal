@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-$id = $_SESSION['logged_in__stu_roll'];
 
 $host = "localhost";
 $username = "root";
@@ -23,6 +22,7 @@ if(!empty($_POST['course'])) {
 
 }
 $age = $_POST['Age'];
+$gender = $_POST['gender'];
 $blood_grp = $_POST['blood_group'];
 $branch = $_POST['Branch'];
 $passing_year = $_POST['Passing_Year'];
@@ -32,7 +32,7 @@ $DOB = $_POST['DOB'];
 $list_of_courses = substr($list_of_c, 0, -1);
 
 $sql = "UPDATE student SET name='$name', noOfCourses=$no_of_courses, 
-listOfCourses='$list_of_courses', age=$age, bloodGroup='$blood_grp', branch='$branch', 
+listOfCourses='$list_of_courses', age=$age, gender='$gender', bloodGroup='$blood_grp', branch='$branch', 
 passingYear=$passing_year, programme='$program', phone='$ph_no', dob='$DOB' WHERE 
 rollNo=$roll";
 
@@ -44,3 +44,13 @@ else {
 }
 
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+</html>

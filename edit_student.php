@@ -1,6 +1,6 @@
 <?php
 session_start();
-$id = $_POST['RollNo']
+$id = $_POST['RollNo'];
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -122,6 +122,13 @@ $conn->close();
   <div class="form-group">
     <label for="DOB">Date of Birth</label>
     <?php echo"<input type='date' class='form-control' name='DOB' placeholder='Enter DOB' value='$p_dob'>"; ?>
+  </div>
+  <div class="form-group">
+    <label for="gender">Gender</label>
+    <label for="male">Male</label>
+    <input type="radio" name="gender" value="male">
+    <label for="female"> &nbsp &nbsp &nbsp &nbsp Female</label>
+    <input type="radio" name="gender" value="female">
   </div>
 
   

@@ -86,6 +86,13 @@
     <input type="number" class="form-control" name="Age" placeholder="Enter Age">
   </div>
   <div class="form-group">
+    <label for="gender">Gender</label>
+    <label for="male">Male</label>
+    <input type="radio" name="gender" value="male">
+    <label for="female"> &nbsp &nbsp &nbsp &nbsp Female</label>
+    <input type="radio" name="gender" value="female">
+  </div>
+  <div class="form-group">
     <label for="blood_group">Blood Group</label>
     <input type="text" class="form-control" name="blood_group" placeholder="Enter Blood Group">
   </div>

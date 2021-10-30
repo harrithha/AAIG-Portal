@@ -38,6 +38,7 @@ $result = $conn->query($sql);
         echo "<tr><td>NO OF COURSES</td><td>".$row["noOfCourses"]."</td>";
         echo "<tr><td>LIST OF COURSES</td><td>".$row["listOfCourses"]."</td>";
         echo "<tr><td>AGE</td><td>".$row["age"]."</td>";
+        echo "<tr><td>GENDER</td><td>".$row["gender"]."</td>";
         echo "<tr><td>BLOOD GROUP</td><td>".$row["bloodGroup"]."</td>";
         echo "<tr><td>BRANCH</td><td>".$row["branch"]."</td>";
         echo "<tr><td>PASSING YEAR</td><td>".$row["passingYear"]."</td>";
