@@ -19,7 +19,6 @@ if ($result->num_rows > 0) {
 
 while($row = $result->fetch_assoc()) {
     if ($row["password"] == $pass){
-       echo "<script type='text/javascript'>alert('Logged in successfully'); </script>";
 
     $_SESSION['logged_in__admin_name'] = $name;
     $_SESSION['logged_in_admin_pass'] = $pass;
@@ -61,7 +60,7 @@ else {
             <a href="view_student_detail.php" class="nav-item nav-link ">
                 <i class="bi-person"></i> VIEW STUDENT DETAILS
             </a>
-            <a href="falculty_login.php" class="nav-item nav-link ">
+            <a href="edit_home.php" class="nav-item nav-link ">
                 <i class="bi-person"></i> EDIT STUDENT DETAILS
             </a>
             <a href="admin_login.php" class="nav-item nav-link ">
