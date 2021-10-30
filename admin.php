@@ -58,7 +58,7 @@ else {
             <a href="add_student.php" class="nav-item nav-link ">
             <i class="bi-person"></i> ADD STUDENT
             </a>
-            <a href="student_login.php" class="nav-item nav-link ">
+            <a href="view_student_detail.php" class="nav-item nav-link ">
                 <i class="bi-person"></i> VIEW STUDENT DETAILS
             </a>
             <a href="falculty_login.php" class="nav-item nav-link ">
