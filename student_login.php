@@ -81,7 +81,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter RollNumber">
-						<input class="input100" type="text" name="rollNo" placeholder="RollNumber">
+						<input class="input100" type="text" name="rollNo" placeholder="Roll Number">
 						<span class="focus-input100"></span>
 					</div>
 					<br>

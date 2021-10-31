@@ -40,7 +40,7 @@ bloodGroup VARCHAR(20),
 branch VARCHAR(50),
 passingYear INT,
 programme VARCHAR(50),
-phone INT,
+phone  VARCHAR(20),
 dob DATE )";
 
 $conn->query($sql);
