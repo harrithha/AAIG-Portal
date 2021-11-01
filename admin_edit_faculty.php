@@ -8,7 +8,7 @@ $dbname = "hac";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
-$sql = "SELECT * FROM student WHERE rollNo = '$id'";
+$sql = "SELECT * FROM faculty WHERE id = '$id'";
 $result = $conn->query($sql);
 $MA101 = 0;
 $PH101 = 0;
@@ -17,9 +17,9 @@ if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
   // echo "Successful !" ;
-   $p_roll = $row['rollNo'];
+   $p_roll = $row['id'];
    $p_name = $row['name'];
-   $p_branch = $row['branch'];
+   $p_dept = $row['department'];
    $p_no_of_courses = $row['noOfCourses'];
    $p = $row['listOfCourses'];
    $p_list_of_courses = explode(",",$p);
@@ -34,52 +34,13 @@ if ($result->num_rows > 0) {
    $p_gender = $row['gender'];
    $p_age = $row['age'];
    $p_bg = $row['bloodGroup'];
-   $p_passing_year = $row['passingYear'];
-   $p_programme = $row['programme'];
    $p_phone = $row['phone'];
+   $p_jd = $row['join_date'];
    $p_dob = $row['dob'];
 
   }
 } 
 $conn->close();
-?>
-
-<?php
-$id = $_POST['RollNo'];
-$host = "localhost";
-$username = "root";
-$password = "";
-$dbname = "hac";
-
-$conn = new mysqli($host, $username, $password, $dbname);
-
-$sql = "SELECT * FROM student WHERE rollNo = '$id'";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-  // echo "Successful !" ;
-   $p_roll = $row['rollNo'];
-   $p_name = $row['name'];
-   $p_branch = $row['branch'];
-   $p_no_of_courses = $row['noOfCourses'];
-   $p = $row['listOfCourses'];
-   $p_list_of_courses = explode(",",$p);
-   $p_gender = $row['gender'];
-   $p_age = $row['age'];
-   $p_bg = $row['bloodGroup'];
-   $p_passing_year = $row['passingYear'];
-   $p_programme = $row['programme'];
-   $p_phone = $row['phone'];
-   $p_dob = $row['dob'];
-
-  }
-} 
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -118,12 +79,12 @@ if ($result->num_rows > 0) {
 
 	<div class="container-contact100" style="background-image: url('images_add/bg-01.jpg');">
 		<div class="wrap-contact100" >
-			<form class="contact100-form validate-form" action="edit_student_to_db.php" method="post">
+			<form class="contact100-form validate-form" action="admin_edit_faculty_to_db.php" method="post">
 				<span class="contact100-form-title">
-					EDIT DETAILS
+					EDIT FACULTY DETAILS
 				</span>
 				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Roll Number">
-					<span class="label-input100">ROLL NUMBER</span>
+					<span class="label-input100">ID</span>
 					<input class="input100" type="number" name="RollNo" placeholder="Enter Your Roll Number" <?php echo "value='$p_roll'"; ?>>
 				</div>
 
@@ -178,82 +139,28 @@ if ($result->num_rows > 0) {
 					<input class="input100" type="number" name="Age" placeholder="Enter Age" <?php echo "value='$p_age'"; ?>>
 			</div>
 
-				<div class="wrap-input100 input100-select bg1">
-					<span class="label-input100">PROGRAM</span>
-					<div>
-						<select class="js-select2" name="Program">
-							<option <?php echo ($p_programme === 'B.Tech') ? 'selected' : '';?> value="B.Tech" selected>B.Tech</option>
-							<option <?php echo ($p_programme === 'MS') ? 'selected' : '';?> value="MS">MS</option>
-							<option <?php echo ($p_programme === 'PhD') ? 'selected' : '';?> value="PhD">PhD</option>
-						</select>
-						<div class="dropDownSelect2"></div>
-					</div>
-				</div>
-
-				<div class="wrap-input100 input100-select bg1">
-					<span class="label-input100">BRANCH</span>
-					<div>
-						<select class="js-select2" name="Branch">
-							<option value="CSE" <?php echo ($p_branch === 'CSE') ? 'selected' : '';?>>Computer Science and Engineering</option>
-							<option value="EE" <?php echo ($p_branch === 'EE') ? 'selected' : '';?>>Electrical Engineering</option>
-							<option value="MMAE" <?php echo ($p_branch === 'MMAE') ? 'selected' : '';?>>Mechanical, Materials and Aerospace Engineering</option>
-							<option value="EP" <?php echo ($p_branch === 'EP') ? 'selected' : '';?>>Engineering Physics</option>
-						</select>
-						<div class="dropDownSelect2"></div>
-					</div>
-				</div>
-
-				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Passing Out Year">
-					<span class="label-input100">PASSING OUT YEAR</span>
-					<input class="input100" type="number" <?php echo "value='$p_passing_year'"; ?> name="Passing_Year" placeholder="Enter Passing Year">
+            <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your DOB">
+				<span class="label-input100">JOINING DATE</span>
+				<input class="input100" type="date" name="JD" <?php echo "value='$p_jd'"; ?> placeholder="Enter Join Date">
 			</div>
+
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">DEPARTMENT</span>
+					<div>
+						<select class="js-select2" name="Dept">
+							<option value="CSE" <?php echo ($p_dept === 'CSE') ? 'selected' : '';?>>Computer Science and Engineering</option>
+							<option value="EE" <?php echo ($p_dept === 'EE') ? 'selected' : '';?>>Electrical Engineering</option>
+							<option value="MMAE" <?php echo ($p_dept === 'MMAE') ? 'selected' : '';?>>Mechanical, Materials and Aerospace Engineering</option>
+							<option value="EP" <?php echo ($p_dept === 'EP') ? 'selected' : '';?>>Engineering Physics</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
 
 			<div class="wrap-input100 validate-input bg1" data-validate="Please Type Number of courses you have taken">
 				<span class="label-input100">NUMBER OF COURSES</span>
 				<input class="input100" type="number" name="No_of_courses" <?php echo "value='$p_no_of_courses'"; ?> placeholder="No. of courses taken">
 			</div>
-
-			<div class="wrap-contact100-form-radio">
-				<span class="label-input100">LIST OF COURSES</span><br><br>
-			<div class="r">
-                <?php
-                $sql = "SELECT * FROM list_of_courses";
-				$yes = 0;
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                  // output data of each row
-                  while($row = $result->fetch_assoc()) {
-                    $c = $row['course_name'];
-
-                  // echo "Successful !" ;
-				  if(in_array($c, $p_list_of_courses))
-				  {
-					  echo "<div class='contact100-form-radio'>
-                  <input class = 'in' id='checkbox1' checked type='checkbox' name='course[]' value='$c'>
-                  <label class='label' for='checkbox1'>
-                      $c
-                  </label>
-                  </div>";
-					  $yes = 1;
-				  }
-				  else
-				  {
-					echo "<div class='contact100-form-radio'>
-					<input class = 'in' id='checkbox1' type='checkbox' name='course[]' value='$c'>
-					<label class='label' for='checkbox1'>
-						$c
-					</label>
-					</div>";
-				  }
-                  
-                
-                }
-			}
-			$conn->close();
-                ?>
-			</div>
-		</div>
-
 				<div class="container-login100-form-btn m-t-32">
 					<button class="login100-form-btn">
 						Edit Details

@@ -17,16 +17,33 @@ session_start();
 <!---<h2>I am admin</h2>--->
 <div class="m-4">
         <nav class="nav nav-pills nav-justified">
+            <a href="admin_add_faculty.php" class="nav-item nav-link ">
+            <i class="bi-person"></i> ADD FACULTY
+            </a>
+
+            <a href="admin_edit_faculty_home.php" class="nav-item nav-link ">
+                <i class="bi-person"></i> EDIT FACULTY DETAILS
+            </a>
+
+            <a href="" class="nav-item nav-link ">
+                <i class="bi-person"></i> VIEW FACULTY DETAILS
+            </a>
+
             <a href="add_student.php" class="nav-item nav-link ">
             <i class="bi-person"></i> ADD STUDENT
+            </a>
+
+            <a href="edit_home.php" class="nav-item nav-link ">
+                <i class="bi-person"></i> EDIT STUDENT DETAILS
             </a>
             <a href="view_student_detail.php" class="nav-item nav-link ">
                 <i class="bi-person"></i> VIEW STUDENT DETAILS
             </a>
-            <a href="edit_home.php" class="nav-item nav-link ">
-                <i class="bi-person"></i> EDIT STUDENT DETAILS
+            <a href="" class="nav-item nav-link ">
+                <i class="bi-person"></i> VIEW ATTENDANCE
             </a>
-            <a href="admin_login.php" class="nav-item nav-link ">
+
+            <a href="" class="nav-item nav-link ">
             <i class="bi bi-card-list"></i> ID CARD GENERATION
             </a>
         </nav>

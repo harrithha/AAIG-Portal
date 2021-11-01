@@ -48,14 +48,25 @@ $conn->query($sql);
 
 $sql = "CREATE TABLE faculty (
 id INT PRIMARY KEY ,
-username VARCHAR(50) ,
+name VARCHAR(50) ,
 password VARCHAR(20) ,
 noOfCourses INT ,
-listOfCourses VARCHAR(50))";
+age INT ,
+gender VARCHAR(10),
+bloodGroup VARCHAR(20),
+department VARCHAR(50),
+join_date DATE,
+phone  VARCHAR(20),
+dob DATE)";
 
 
 $conn->query($sql);
 
+$sql = "CREATE TABLE list_of_courses (
+    course_name VARCHAR(100),
+    instructor_id VARCHAR(100))";
+    
+    $conn->query($sql);
 
 $conn->close();
 

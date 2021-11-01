@@ -1,6 +1,6 @@
 <?php
 session_start();
-$id = $_POST['RollNo'];
+$id = $_SESSION['logged_in__stu_roll'];
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -41,45 +41,6 @@ if ($result->num_rows > 0) {
 
   }
 } 
-$conn->close();
-?>
-
-<?php
-$id = $_POST['RollNo'];
-$host = "localhost";
-$username = "root";
-$password = "";
-$dbname = "hac";
-
-$conn = new mysqli($host, $username, $password, $dbname);
-
-$sql = "SELECT * FROM student WHERE rollNo = '$id'";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-  // echo "Successful !" ;
-   $p_roll = $row['rollNo'];
-   $p_name = $row['name'];
-   $p_branch = $row['branch'];
-   $p_no_of_courses = $row['noOfCourses'];
-   $p = $row['listOfCourses'];
-   $p_list_of_courses = explode(",",$p);
-   $p_gender = $row['gender'];
-   $p_age = $row['age'];
-   $p_bg = $row['bloodGroup'];
-   $p_passing_year = $row['passingYear'];
-   $p_programme = $row['programme'];
-   $p_phone = $row['phone'];
-   $p_dob = $row['dob'];
-
-  }
-} 
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -118,7 +79,7 @@ if ($result->num_rows > 0) {
 
 	<div class="container-contact100" style="background-image: url('images_add/bg-01.jpg');">
 		<div class="wrap-contact100" >
-			<form class="contact100-form validate-form" action="edit_student_to_db.php" method="post">
+			<form class="contact100-form validate-form" action="student_add_info_to_db.php" method="post" enctype="multipart/form-data">
 				<span class="contact100-form-title">
 					EDIT DETAILS
 				</span>
@@ -208,6 +169,11 @@ if ($result->num_rows > 0) {
 					<input class="input100" type="number" <?php echo "value='$p_passing_year'"; ?> name="Passing_Year" placeholder="Enter Passing Year">
 			</div>
 
+            <div class="wrap-input100 validate-input bg1"> 
+				<span class="label-input100">ADD PHOTO</span> <br>
+				<input type="file" name="image" />
+			    </div>
+
 			<div class="wrap-input100 validate-input bg1" data-validate="Please Type Number of courses you have taken">
 				<span class="label-input100">NUMBER OF COURSES</span>
 				<input class="input100" type="number" name="No_of_courses" <?php echo "value='$p_no_of_courses'"; ?> placeholder="No. of courses taken">
@@ -218,7 +184,6 @@ if ($result->num_rows > 0) {
 			<div class="r">
                 <?php
                 $sql = "SELECT * FROM list_of_courses";
-				$yes = 0;
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                   // output data of each row
@@ -226,7 +191,7 @@ if ($result->num_rows > 0) {
                     $c = $row['course_name'];
 
                   // echo "Successful !" ;
-				  if(in_array($c, $p_list_of_courses))
+                  if(in_array($c, $p_list_of_courses))
 				  {
 					  echo "<div class='contact100-form-radio'>
                   <input class = 'in' id='checkbox1' checked type='checkbox' name='course[]' value='$c'>
@@ -245,15 +210,13 @@ if ($result->num_rows > 0) {
 					</label>
 					</div>";
 				  }
-                  
                 
                 }
-			}
-			$conn->close();
+            }
+            $conn->close();
                 ?>
 			</div>
 		</div>
-
 				<div class="container-login100-form-btn m-t-32">
 					<button class="login100-form-btn">
 						Edit Details
@@ -266,7 +229,7 @@ if ($result->num_rows > 0) {
 
 
 <!--===============================================================================================-->
-	<script src="vendor_add/jquery/jquery-3.2.1.min.js"></script>
+<script src="vendor_add/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
 	<script src="vendor_add/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
