@@ -50,7 +50,6 @@ $sql = "CREATE TABLE faculty (
 id INT PRIMARY KEY ,
 name VARCHAR(50) ,
 password VARCHAR(20) ,
-noOfCourses INT ,
 age INT ,
 gender VARCHAR(10),
 bloodGroup VARCHAR(20),

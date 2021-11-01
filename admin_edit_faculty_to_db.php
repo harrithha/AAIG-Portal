@@ -8,7 +8,6 @@ $dbname = "hac";
 $conn = new mysqli($host, $username, $password, $dbname);
 $roll = $_POST['RollNo'];
 $name = $_POST['name'];
-$no_of_courses = $_POST['No_of_courses'];
 // $list_of_c = $_POST['course'];
 // $each = explode(",", $list_of_c);
 // $length = count($each);
@@ -58,7 +57,7 @@ if (strlen($phone_to_check) < 10 || strlen($phone_to_check) > 14) {
 } 
 
 
-$sql = "UPDATE faculty SET name='$name', noOfCourses=$no_of_courses, age=$age, gender='$gender', bloodGroup='$blood_grp', 
+$sql = "UPDATE faculty SET name='$name', age=$age, gender='$gender', bloodGroup='$blood_grp', 
 department='$dept', join_date='$jd', phone='$ph_no', dob='$DOB' WHERE 
 id=$roll";
 

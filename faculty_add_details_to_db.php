@@ -35,7 +35,6 @@ if(isset($_FILES['image'])){
 
 $roll = $_SESSION['logged_in_fac_id'];
 $name = $_POST['name'];
-$no_of_courses = $_POST['No_of_courses'];
 $len = 0; //Length of courses
 
 $age = $_POST['Age'];
@@ -74,7 +73,7 @@ if (strlen($phone_to_check) < 10 || strlen($phone_to_check) > 14) {
 } 
 
 
-$sql = "UPDATE faculty SET name='$name', noOfCourses=$no_of_courses, age=$age, gender='$gender', bloodGroup='$blood_grp', 
+$sql = "UPDATE faculty SET name='$name', age=$age, gender='$gender', bloodGroup='$blood_grp', 
 department='$dept', join_date='$jd', phone='$ph_no', dob='$DOB' WHERE 
 id=$roll";
 

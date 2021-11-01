@@ -157,10 +157,6 @@ $conn->close();
 					</div>
 				</div>
 
-			<div class="wrap-input100 validate-input bg1" data-validate="Please Type Number of courses you have taken">
-				<span class="label-input100">NUMBER OF COURSES</span>
-				<input class="input100" type="number" name="No_of_courses" <?php echo "value='$p_no_of_courses'"; ?> placeholder="No. of courses taken">
-			</div>
 				<div class="container-login100-form-btn m-t-32">
 					<button class="login100-form-btn">
 						Edit Details
