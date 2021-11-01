@@ -75,13 +75,13 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" method="post" action="student.php">
+				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" method="post" action="student_login_session.php">
 					<span class="login100-form-title">
 						Sign in
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter RollNumber">
-						<input class="input100" type="text" name="rollNo" placeholder="RollNumber">
+						<input class="input100" type="text" name="rollNo" placeholder="Roll Number">
 						<span class="focus-input100"></span>
 					</div>
 					<br>

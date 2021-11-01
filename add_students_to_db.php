@@ -22,32 +22,39 @@ $conn = new mysqli($host, $username, $password, $dbname);
 $roll = $_POST['RollNo'];
 $name = $_POST['name'];
 $password = $_POST['pass'];
-$no_of_courses = $_POST['No_of_courses'];
-$list_of_c = '';
 
-if(!empty($_POST['course'])) {
-    foreach($_POST['course'] as $value){
-        $list_of_c .= "$value," ;
-    }
+//Validity Checks for each input
+
+// 1. Roll Number
+$sql = "SELECT * FROM student WHERE rollNo = '$roll'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+  echo "<script type='text/javascript'>alert('Duplicate Entry of Primary Key !'); </script>";
+  echo '<script type="text/javascript"> location.href = "add_student.php" </script>';
+  exit();
 }
 
-$age = $_POST['Age'];
-$gender = $_POST['gender'];
-$blood_grp = $_POST['blood_group'];
-$branch = $_POST['Branch'];
-$passing_year = $_POST['Passing_Year'];
-$program = $_POST['Program'];
-$ph_no = $_POST['Phone'];
-$DOB = $_POST['DOB'];
-$list_of_courses = substr($list_of_c, 0, -1);
+//2. Password
+$uppercase = preg_match('@[A-Z]@', $password);
+$lowercase = preg_match('@[a-z]@', $password);
+$number    = preg_match('@[0-9]@', $password);
+$specialChars = preg_match('@[^\w]@', $password);
 
-$sql = "INSERT INTO student (rollNo, name, password, noOfCourses, listOfCourses, age, gender, bloodGroup, branch, 
-passingYear, programme, phone, dob) VALUES ('$roll','$name', '$password','$no_of_courses','$list_of_courses','$age', '$gender' ,
-'$blood_grp','$branch','$passing_year','$program','$ph_no','$DOB')";
+if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) 
+{
+    echo "<script type='text/javascript'>alert('Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character !'); </script>";
+    echo '<script type="text/javascript"> location.href = "add_student.php" </script>';
+    exit();
+}
+
+
+$sql = "INSERT INTO student (rollNo, name, password, noOfCourses, listOfCourses, age, gender,
+bloodGroup, branch, passingYear, programme, phone, dob) VALUES ('$roll','$name', '$password','','','',
+'','','','','','','')";
 
 if ($conn->query($sql) === TRUE) {
-   echo 'New record created successfully';
-   echo '<form action="admin.php" method="post"><center><button type="submit" class="btn btn-dark">BACK</button></center></form>';
+    echo "<script type='text/javascript'>alert('New Record created successfully !'); </script>";
+    echo '<script type="text/javascript"> location.href = "admin.php" </script>';
 } 
 else {
   echo "Error: " . $sql . "<br>" . $conn->error;

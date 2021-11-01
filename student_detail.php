@@ -55,7 +55,7 @@ $result = $conn->query($sql);
 <div class="container-contact100" style="background-image: url('images_add/bg-01.jpg');">
     <div class="wrap-contact100">
 
-    <table class = "table table-hover"><thead class="table-dark"><tr><th scope="col"></th><th scope="col">STUDENT DETAILS</th><th scope="col"></th></tr></thead><tbody>
+    <table class = "table table-hover"><thead class="table-dark"><tr><th scope="col" colspan="2" style="text-align:center">STUDENT DETAILS</th></tr></thead><tbody>
 
     <?php
 
