@@ -23,7 +23,7 @@ session_start();
                 <i class="bi-person"></i> REGISTER FOR COURSE
             </a>
             <a href="student_profile.php" class="nav-item nav-link ">
-                <i class="bi-person"></i> VIEW PROFILE
+              <i class="bi-person"></i> VIEW PROFILE
             </a>
             <a href="" class="nav-item nav-link ">
             <i class="bi bi-card-list"></i> VIEW ID CARD
