@@ -63,7 +63,7 @@ $conn->query($sql);
 
 $sql = "CREATE TABLE list_of_courses (
     course_name VARCHAR(100),
-    instructor_id VARCHAR(100))";
+    instructor_id INT)";
     
     $conn->query($sql);
 

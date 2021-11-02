@@ -20,6 +20,7 @@ $dbname = "hac";
 $conn = new mysqli($host, $username, $password, $dbname);
 
 $course_name = $_POST['cname'];
+$date = $course_name."date";
 $sql = "SELECT * FROM list_of_courses WHERE course_name = '$course_name'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -30,8 +31,24 @@ if ($result->num_rows > 0) {
 $sql = "INSERT INTO list_of_courses (course_name, instructor_id) VALUES ('$course_name','$fac')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "<script type='text/javascript'>alert('New Course created successfully !'); </script>";
-    echo '<script type="text/javascript"> location.href = "faculty.php" </script>';
+    $sql = "CREATE TABLE $course_name". '(
+    rollNo INT PRIMARY KEY ,
+    name VARCHAR(50) ,
+    attendance VARCHAR(21844))';
+    if ($conn->query($sql) === TRUE){
+        $sql = "CREATE TABLE $date".'(
+        date VARCHAR(50))';
+        if ($conn->query($sql) === TRUE){
+            echo "<script type='text/javascript'>alert('New Course created successfully !'); </script>";
+            echo '<script type="text/javascript"> location.href = "faculty.php" </script>';
+        }
+        else{
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+       }
+    else{
+         echo "Error: " . $sql . "<br>" . $conn->error;
+    } 
 } 
 else {
   echo "Error: " . $sql . "<br>" . $conn->error;
