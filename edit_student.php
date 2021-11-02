@@ -1,50 +1,6 @@
 <?php
 session_start();
-$id = $_POST['RollNo'];
-$host = "localhost";
-$username = "root";
-$password = "";
-$dbname = "hac";
 
-$conn = new mysqli($host, $username, $password, $dbname);
-
-$sql = "SELECT * FROM student WHERE rollNo = '$id'";
-$result = $conn->query($sql);
-$MA101 = 0;
-$PH101 = 0;
-$BB101 = 0;
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-  // echo "Successful !" ;
-   $p_roll = $row['rollNo'];
-   $p_name = $row['name'];
-   $p_branch = $row['branch'];
-   $p_no_of_courses = $row['noOfCourses'];
-   $p = $row['listOfCourses'];
-   $p_list_of_courses = explode(",",$p);
-   foreach ($p_list_of_courses as $course) {
-    if($course == 'MA_101')
-      $MA101 = 1;
-    elseif($course == 'PH_101')
-      $PH101 = 1;
-    elseif($course == 'BB_101')
-      $BB101 = 1;
-  }
-   $p_gender = $row['gender'];
-   $p_age = $row['age'];
-   $p_bg = $row['bloodGroup'];
-   $p_passing_year = $row['passingYear'];
-   $p_programme = $row['programme'];
-   $p_phone = $row['phone'];
-   $p_dob = $row['dob'];
-
-  }
-} 
-$conn->close();
-?>
-
-<?php
 $id = $_POST['RollNo'];
 $host = "localhost";
 $username = "root";
@@ -218,7 +174,7 @@ if ($result->num_rows > 0) {
 			<div class="r">
                 <?php
                 $sql = "SELECT * FROM list_of_courses";
-				$yes = 0;
+				      $yes = 0;
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                   // output data of each row

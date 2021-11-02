@@ -8,7 +8,7 @@ $dbname = "hac";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
-
+$course = $_POST['course'];
 
 ?>
 
@@ -17,7 +17,7 @@ $conn = new mysqli($host, $username, $password, $dbname);
 <html>
 <head>
     <meta charset="utf-8">
-    <title>View Student</title>
+    <title>View Attendance</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
@@ -52,80 +52,72 @@ $conn = new mysqli($host, $username, $password, $dbname);
 <body>
   <div class="container-contact100" style="background-image: url('images_add/bg-01.jpg');">
     <div class="wrap-contact100" >
-    <br><h3 class="contact100-form-title"><center>FILTERS</center></h3>
-    <form action="filter_view.php" method="post">
+  
 
-    <div class="wrap-input100 input100-select bg1">
-      <span  class="label-input100">GENDER</span>
-      <div>
-      <select name="gender" class="js-select2">
-        <option value="all" selected >ALL</option>
-        <option value="male">MALE</option>
-        <option value="female">FEMALE</option>
-        <option value="others">OTHERS</option>
-      </select>
-       <div class="dropDownSelect2"></div>
-     </div>
-    </div>
-    
-    <div class="wrap-input100 input100-select bg1">
-    <span class="label-input100">COURSE</span>
-    <div>
-      <select name="course" class="js-select2">
-        <option selected value="all">ALL</option>
+    <h1 class="contact100-form-title"><center>ATTENDANCE</center></h1>
 
-                <?php
-                $sql = "SELECT * FROM list_of_courses";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                  // output data of each row
-                  while($row = $result->fetch_assoc()) {
-                    $c = $row['course_name'];
-
-
-                echo "<option value='$c'>$c</option>";
-                
-              
-            }
-        }
-         
-        ?>
-      </select>
-      <div class="dropDownSelect2"></div>
-    </div>
-    </div>
-    
-    <div class="container-login100-form-btn m-t-32">
-    <button type="submit" class="login100-form-btn">APPLY</button>
-    </div>
-    </form>
-     
-    <br><br><br>
-
-    <h1 class="contact100-form-title"><center>STUDENT DETAILS</center></h1>
-
-    <table class = "table table-hover"><thead class="table-dark"><tr><th scope="col">Roll no </th><th scope="col">Name </th><th scope="col">View Details</th></tr></thead><tbody>
 
     <?php
 
-    $sql = "SELECT * FROM student";
+    $tname = $course."date";
 
+    $sql = "SELECT * FROM $tname ";
+    $result = $conn->query($sql);
+
+    echo '<h3 class="contact100-form-title"><center>'.$course.'</center></h3>';
+    echo '<table class = "table table-hover"><thead class="table-dark"><tr><th scope="col">Roll no </th><th scope="col">Name </th>';
+
+    if ($result->num_rows > 0) {
+       while($row = $result->fetch_assoc()) {
+    
+        echo '<th scope="col">' . $row["date"]. '</th>';
+      }
+    }
+    echo '<th scope="col">Total</th>';
+    echo '</tr></thead><tbody>';
+    
+    $sql = "SELECT * FROM $course ";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
        while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["rollNo"]. "</td><td> ".$row["name"]. "</td>";
+    
+        echo '<tr><td>' . $row["rollNo"]. '</td><td>'.$row['name'].'</td>';
+        
+        $counter = 0;
+        $total = 0;
 
-        echo '<td><form action="student_detail.php" method="post"><button type="submit" class="btn btn-outline-primary" name="roll" value="'.$row["rollNo"].'">VIEW</button></form></td></tr>';
+        $att = explode(",", $row['attendance']);
+        foreach ($att as  $value) {
+            if ($value != ''){
+              $total++;
+            }
+            
+            if ($value == '0'){
+              echo '<td>A</td>';
+            }
+            else if ($value == '1'){
+              echo '<td>P</td>';
+              $counter++;
+            }
         }
-  }
+        echo '<td>'.$counter.'/'.$total.'</td></tr>';
+      }
+    }
+
+    echo '</tbody></thead>';
+
+
+    
   $conn->close();
 
   ?>
 
-    </tbody></table>
+  </tbody></table>
 
-    <form action="admin.php" method="post"> 
+  <br><br>
+
+    <form action="faculty_view_attendance.php" method="post"> 
       <center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
     </form>
 
