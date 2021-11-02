@@ -20,6 +20,13 @@ $dbname = "hac";
 $conn = new mysqli($host, $username, $password, $dbname);
 
 $course_name = $_POST['cname'];
+$sql = "SELECT * FROM list_of_courses WHERE course_name = '$course_name'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+  echo "<script type='text/javascript'>alert('Course Already Exists! !'); </script>";
+  echo '<script type="text/javascript"> location.href = "faculty_add_course.php" </script>';
+  exit();
+}
 $sql = "INSERT INTO list_of_courses (course_name, instructor_id) VALUES ('$course_name','$fac')";
 
 if ($conn->query($sql) === TRUE) {

@@ -19,7 +19,7 @@ session_start();
             <a href="student_add_own_details.php" class="nav-item nav-link ">
             <i class="bi-person"></i> EDIT DETAILS
             </a>
-            <a href="" class="nav-item nav-link ">
+            <a href="student_register.php" class="nav-item nav-link ">
                 <i class="bi-person"></i> REGISTER FOR COURSE
             </a>
             <a href="student_profile.php" class="nav-item nav-link ">
