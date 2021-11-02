@@ -8,9 +8,9 @@ $dbname = "hac";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
-$rollno = $_POST['roll'];
+$id = $_POST['id'];
 
-$sql = "SELECT * FROM student where rollNo ='$rollno'";
+$sql = "SELECT * FROM faculty where id ='$id'";
 
 $result = $conn->query($sql);
 
@@ -20,7 +20,7 @@ $result = $conn->query($sql);
 <html>
 <head>
     <meta charset="utf-8">
-    <title>View Student</title>
+    <title>View Faculty</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
@@ -55,28 +55,25 @@ $result = $conn->query($sql);
 <div class="container-contact100" style="background-image: url('images_add/bg-01.jpg');">
     <div class="wrap-contact100">
 
-    <table class = "table table-hover"><thead class="table-dark"><tr><th scope="col" colspan="2" style="text-align:center">STUDENT DETAILS</th></tr></thead><tbody>
+    <table class = "table table-hover"><thead class="table-dark"><tr><th scope="col" colspan="2" style="text-align:center">FACULTY DETAILS</th></tr></thead><tbody>
 
     <?php
 
        $row = $result->fetch_assoc();
-        echo "<tr><td>ROLL NO</td><td>".$row["rollNo"]."</td>";
+        echo "<tr><td>ID</td><td>".$row["id"]."</td>";
         echo "<tr><td>NAME</td><td>".$row["name"]."</td>";
-        echo "<tr><td>NO OF COURSES</td><td>".$row["noOfCourses"]."</td>";
-        echo "<tr><td>LIST OF COURSES</td><td>".$row["listOfCourses"]."</td>";
         echo "<tr><td>AGE</td><td>".$row["age"]."</td>";
         echo "<tr><td>GENDER</td><td>".$row["gender"]."</td>";
         echo "<tr><td>BLOOD GROUP</td><td>".$row["bloodGroup"]."</td>";
-        echo "<tr><td>BRANCH</td><td>".$row["branch"]."</td>";
-        echo "<tr><td>PASSING YEAR</td><td>".$row["passingYear"]."</td>";
-        echo "<tr><td>PROGRAMME</td><td>".$row["programme"]."</td>";
+        echo "<tr><td>DEPARTMENT</td><td>".$row["department"]."</td>";
+        echo "<tr><td>JOIN DATE</td><td>".$row["join_date"]."</td>";
         echo "<tr><td>PHONE</td><td>".$row["phone"]."</td>";
         echo "<tr><td>DOB</td><td>".$row["dob"]."</td>";
     ?>
 
     </tbody></table>
     
-    <form action="view_student_detail.php" method="post"> 
+    <form action="view_faculty_detail.php" method="post"> 
     	<center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
     </form>
 

@@ -20,17 +20,6 @@ if ($result->num_rows > 0) {
    $p_roll = $row['id'];
    $p_name = $row['name'];
    $p_dept = $row['department'];
-   $p_no_of_courses = $row['noOfCourses'];
-   $p = $row['listOfCourses'];
-   $p_list_of_courses = explode(",",$p);
-   foreach ($p_list_of_courses as $course) {
-    if($course == 'MA_101')
-      $MA101 = 1;
-    elseif($course == 'PH_101')
-      $PH101 = 1;
-    elseif($course == 'BB_101')
-      $BB101 = 1;
-  }
    $p_gender = $row['gender'];
    $p_age = $row['age'];
    $p_bg = $row['bloodGroup'];

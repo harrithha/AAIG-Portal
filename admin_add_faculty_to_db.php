@@ -48,8 +48,8 @@ if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password)
 }
 
 
-$sql = "INSERT INTO faculty (id, name, password,noOfCourses, listOfCourses, age, gender,
-bloodGroup, department, join_date, phone, dob) VALUES ('$roll','$name', '$password','','','','','','','','','')";
+$sql = "INSERT INTO faculty (id, name, password, age, gender,
+bloodGroup, department, join_date, phone, dob) VALUES ('$roll','$name', '$password','','','','','','','')";
 
 if ($conn->query($sql) === TRUE) {
     echo "<script type='text/javascript'>alert('New Record Created Successfully !'); </script>";

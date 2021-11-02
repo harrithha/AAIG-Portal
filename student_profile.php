@@ -8,7 +8,7 @@ $dbname = "hac";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
-$rollno = $_POST['roll'];
+$rollno = $_SESSION['logged_in__stu_roll'];
 
 $sql = "SELECT * FROM student where rollNo ='$rollno'";
 
@@ -20,7 +20,7 @@ $result = $conn->query($sql);
 <html>
 <head>
     <meta charset="utf-8">
-    <title>View Student</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
@@ -55,7 +55,9 @@ $result = $conn->query($sql);
 <div class="container-contact100" style="background-image: url('images_add/bg-01.jpg');">
     <div class="wrap-contact100">
 
-    <table class = "table table-hover"><thead class="table-dark"><tr><th scope="col" colspan="2" style="text-align:center">STUDENT DETAILS</th></tr></thead><tbody>
+    
+    <table class = "table table-hover">
+      <thead class="table-dark"><tr><th scope="col" colspan="2" style="text-align:center">PROFILE</th></tr></thead><tbody>
 
     <?php
 
@@ -76,7 +78,7 @@ $result = $conn->query($sql);
 
     </tbody></table>
     
-    <form action="view_student_detail.php" method="post"> 
+    <form action="student.php" method="post"> 
     	<center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
     </form>
 

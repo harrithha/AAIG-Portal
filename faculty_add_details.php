@@ -17,15 +17,12 @@ if ($result->num_rows > 0) {
    $p_roll = $row['id'];
    $p_name = $row['name'];
    $p_dept = $row['department'];
-   $p_no_of_courses = $row['noOfCourses'];
-   $p = $row['listOfCourses'];
    $p_gender = $row['gender'];
    $p_age = $row['age'];
    $p_bg = $row['bloodGroup'];
    $p_phone = $row['phone'];
    $p_jd = $row['join_date'];
    $p_dob = $row['dob'];
-   $list_of_courses = substr($p, 0, -1);
 
   }
 } 

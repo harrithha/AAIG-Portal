@@ -25,7 +25,9 @@ session_start();
                 <i class="bi-person"></i> EDIT FACULTY DETAILS
             </a>
 
-            <a href="" class="nav-item nav-link ">
+
+            <a href="view_faculty_detail.php" class="nav-item nav-link ">
+
                 <i class="bi-person"></i> VIEW FACULTY DETAILS
             </a>
 
