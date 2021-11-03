@@ -47,6 +47,7 @@ $course = $_POST['course'];
 <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="css_add/util.css">
   <link rel="stylesheet" type="text/css" href="css_add/main.css">
+  <link rel="stylesheet" type="text/css" href="css_add/main.css">
 
 </head>
 <body>
@@ -65,7 +66,7 @@ $course = $_POST['course'];
     $result = $conn->query($sql);
 
     echo '<h3 class="contact100-form-title"><center>'.$course.'</center></h3>';
-    echo '<table class = "table table-hover"><thead class="table-dark"><tr><th scope="col">Roll no </th><th scope="col">Name </th>';
+    echo '<div class="test"><table class = "table table-hover table-responsive"><thead class="table-dark"><tr><th scope="col">Roll no </th><th scope="col">Name </th>';
 
     if ($result->num_rows > 0) {
        while($row = $result->fetch_assoc()) {
@@ -105,7 +106,7 @@ $course = $_POST['course'];
       }
     }
 
-    echo '</tbody></thead>';
+    echo '</tbody></thead></div>';
 
 
     
