@@ -8,7 +8,7 @@ $password = "";
 $conn = new mysqli($host, $username, $password);
 
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+  die("Connection failed: " . $conn->connect_error);
 }
 
 $sql = "CREATE DATABASE hac";
@@ -40,33 +40,33 @@ $lowercase = preg_match('@[a-z]@', $password);
 $number    = preg_match('@[0-9]@', $password);
 $specialChars = preg_match('@[^\w]@', $password);
 
-if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) 
-{
-    echo "<script type='text/javascript'>alert('Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character !'); </script>";
-    echo '<script type="text/javascript"> location.href = "add_student.php" </script>';
-    exit();
+if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
+  echo "<script type='text/javascript'>alert('Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character !'); </script>";
+  echo '<script type="text/javascript"> location.href = "add_student.php" </script>';
+  exit();
 }
 
 
 $sql = "INSERT INTO student (rollNo, name, password, noOfCourses, listOfCourses, age, gender,
-bloodGroup, branch, passingYear, programme, phone, dob) VALUES ('$roll','$name', '$password','','','',
-'','','','','','','')";
+bloodGroup, branch, passingYear, programme, phone, dob) VALUES ('$roll','$name', '$password',NULL,'',NULL,
+'','','',NULL,'','',NULL)";
 
 if ($conn->query($sql) === TRUE) {
-    echo "<script type='text/javascript'>alert('New Record created successfully !'); </script>";
-    echo '<script type="text/javascript"> location.href = "admin.php" </script>';
-} 
-else {
+  echo "<script type='text/javascript'>alert('New Record created successfully !'); </script>";
+  echo '<script type="text/javascript"> location.href = "admin.php" </script>';
+} else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 </html>
