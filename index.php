@@ -41,7 +41,7 @@ branch VARCHAR(50),
 passingYear INT,
 programme VARCHAR(50),
 phone  VARCHAR(20),
-dob DATE )";
+dob DATE)";
 
 $conn->query($sql);
 

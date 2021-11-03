@@ -11,6 +11,17 @@ $password = "";
 $dbname = "hac";
 
 $conn = new mysqli($host, $username, $password, $dbname);
+$roll = $_SESSION['logged_in_fac_id'];
+$name = $_POST['name'];
+$len = 0; //Length of courses
+
+$age = $_POST['Age'];
+$gender = $_POST['gender'];
+$blood_grp = $_POST['blood_group'];
+$dept = $_POST['Dept'];
+$jd = $_POST['JD'];
+$ph_no = $_POST['Phone'];
+$DOB = $_POST['DOB'];
 
 if(isset($_FILES['image'])){
     $errors= array();
@@ -30,6 +41,7 @@ if(isset($_FILES['image'])){
        $errors[]='File size must be excately 2 MB';
     }
     
+    $file_name = $roll.".jpg";
     if(empty($errors)==true){
        move_uploaded_file($file_tmp,"images_faculty/".$file_name);
        echo "Success";
@@ -38,17 +50,7 @@ if(isset($_FILES['image'])){
     }
  }
 
-$roll = $_SESSION['logged_in_fac_id'];
-$name = $_POST['name'];
-$len = 0; //Length of courses
 
-$age = $_POST['Age'];
-$gender = $_POST['gender'];
-$blood_grp = $_POST['blood_group'];
-$dept = $_POST['Dept'];
-$jd = $_POST['JD'];
-$ph_no = $_POST['Phone'];
-$DOB = $_POST['DOB'];
 //Validity Checks for each input
 
 // Age

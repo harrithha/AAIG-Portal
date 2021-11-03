@@ -14,33 +14,6 @@ $dbname = "hac";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
-
-if(isset($_FILES['image'])){
-    $errors= array();
-    $file_name = $_FILES['image']['name'];
-    $file_size =$_FILES['image']['size'];
-    $file_tmp =$_FILES['image']['tmp_name'];
-    $file_type=$_FILES['image']['type'];
-    $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
-    
-    $extensions= array("jpeg","jpg","png");
-    
-    if(in_array($file_ext,$extensions)=== false){
-       $errors[]="extension not allowed, please choose a JPEG or PNG file.";
-    }
-    
-    if($file_size > 2097152){
-       $errors[]='File size must be excately 2 MB';
-    }
-    
-    if(empty($errors)==true){
-       move_uploaded_file($file_tmp,"images_student/".$file_name);
-       echo "Success";
-    }else{
-       print_r($errors);
-    }
- }
-
 $roll = $_POST['RollNo'];
 $name = $_POST['name'];
 $no_of_courses = $_POST['No_of_courses'];
@@ -64,6 +37,32 @@ $ph_no = $_POST['Phone'];
 $DOB = $_POST['DOB'];
 $list_of_courses = substr($list_of_c, 0, -1);
 
+if(isset($_FILES['image'])){
+    $errors= array();
+    $file_name = $_FILES['image']['name'];
+    $file_size =$_FILES['image']['size'];
+    $file_tmp =$_FILES['image']['tmp_name'];
+    $file_type=$_FILES['image']['type'];
+    $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+    
+    $extensions= array("jpeg","jpg","png");
+    
+    if(in_array($file_ext,$extensions)=== false){
+       $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+    }
+    
+    if($file_size > 2097152){
+       $errors[]='File size must be excately 2 MB';
+    }
+    $file_name = $roll.".jpg";
+    if(empty($errors)==true){
+       move_uploaded_file($file_tmp,"images_student/".$file_name);
+       echo "Success";
+    }else{
+       print_r($errors);
+    }
+ }
+
 //Validity Checks for each input
 
 // Age
@@ -72,9 +71,7 @@ $diff = date_diff(date_create($DOB), date_create($today));
 $age_actual = $diff->format('%y');
 if($age_actual != $age)
 {
-  echo "<script type='text/javascript'>alert('Enter correct age according to DOB!'); </script>";
-    echo '<script type="text/javascript"> location.href = "student_add_own_details.php" </script>';
-  exit();
+  _student
 }
 // Blood Group
 $available_bgs = array("A+", "A-", "B+", "B-","AB+", "AB-", "O+", "O-");

@@ -31,7 +31,7 @@ if(!isset($_SESSION['logged_in__stu_roll'] )){
             <a href="stud_view_attendance.php" class="nav-item nav-link ">
             <i class="bi bi-card-list"></i> VIEW ATTENDANCE
             </a>
-            <a href="" class="nav-item nav-link ">
+            <a href="display_student_idcard.php" class="nav-item nav-link ">
             <i class="bi bi-card-list"></i> VIEW ID CARD
             </a>
         </nav>

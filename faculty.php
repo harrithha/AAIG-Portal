@@ -32,7 +32,7 @@ if(!isset($_SESSION['logged_in_fac_id'])){
             <a href="mark_attendance_list.php" class="nav-item nav-link ">
                 <i class="bi-person"></i> MARK ATTENDANCE
             </a>
-            <a href="" class="nav-item nav-link ">
+            <a href="display_faculty_idcard.php" class="nav-item nav-link ">
             <i class="bi bi-card-list"></i> VIEW ID CARD
             </a>
             <a href="faculty_add_course.php" class="nav-item nav-link ">
