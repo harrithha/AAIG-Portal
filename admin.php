@@ -43,7 +43,7 @@ if(!isset($_SESSION['logged_in__admin_name'])){
             <a href="view_student_detail.php" class="nav-item nav-link ">
                 <i class="bi-person"></i> VIEW STUDENT DETAILS
             </a>
-            <a href="" class="nav-item nav-link ">
+            <a href="admin_view_attendance.php" class="nav-item nav-link ">
                 <i class="bi-person"></i> VIEW ATTENDANCE
             </a>
 
