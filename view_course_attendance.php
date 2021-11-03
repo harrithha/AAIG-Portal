@@ -1,9 +1,10 @@
 <?php 
 session_start();
-
-if(!isset($_SESSION['logged_in__admin_name'])){
-    echo '<script type="text/javascript"> location.href = "admin_login.php" </script>';
+if(!isset($_SESSION['logged_in__stu_roll'] )){
+    echo '<script type="text/javascript"> location.href = "student_login.php" </script>';
 }
+
+else{
 
 $host = "localhost";
 $username = "root";
@@ -12,9 +13,13 @@ $dbname = "hac";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
-$sql = "SELECT * FROM faculty";
+$course = $_POST['course'];
 
-$result = $conn->query($sql);
+$roll = $_SESSION['logged_in__stu_roll'];
+
+
+}
+
 
 ?>
 
@@ -23,7 +28,7 @@ $result = $conn->query($sql);
 <html>
 <head>
     <meta charset="utf-8">
-    <title>View Faculty</title>
+    <title>View Attendance</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
@@ -53,31 +58,92 @@ $result = $conn->query($sql);
 <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="css_add/util.css">
   <link rel="stylesheet" type="text/css" href="css_add/main.css">
+  <link rel="stylesheet" type="text/css" href="v.css">
 
 </head>
 <body>
   <div class="container-contact100" style="background-image: url('images_add/bg-01.jpg');">
     <div class="wrap-contact100" >
+  
 
-    <h1 class="contact100-form-title"><center>FACULTY DETAILS</center></h1>
+    <h1 class="contact100-form-title"><center>ATTENDANCE</center></h1>
 
-    <table class = "table table-hover"><thead class="table-dark"><tr><th scope="col">ID </th><th scope="col">Name </th><th scope="col">View Details</th></tr></thead><tbody>
 
     <?php
+    
+    $dates = array();
+    $tname = $course."date";
+
+    $sql = "SELECT * FROM $tname ";
+    $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-       while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["id"]. "</td><td> ".$row["name"]. "</td>";
-
-        echo '<td><form action="faculty_detail.php" method="post"><button type="submit" class="btn btn-outline-primary" name="id" value="'.$row["id"].'">VIEW</button></form></td></tr>';
+       while($row = $result->fetch_assoc()) {    
+        array_push($dates, $row["date"]);
         }
-  }
+    }
+    
+    $sql = "SELECT * FROM $course WHERE rollNo = '$roll'";
+    $result = $conn->query($sql);
+
+    $arr = array();
+
+    if ($result->num_rows > 0) {
+       $row = $result->fetch_assoc();
+        
+        $counter = 0;
+        $total = 0;
+
+        $att = explode(",", $row['attendance']);
+        foreach ($att as  $value) {
+            if ($value != ''){
+              $total++;
+            }
+            
+            if ($value == '0'){
+              array_push($arr, $value);
+            }
+            else if ($value == '1'){
+              array_push($arr, $value);
+              $counter++;
+            }
+        }
+      
+    }
+
+    echo '<h3 class="contact100-form-title"><center>'.$course.'</center></h3>';
+    echo '<table class = " table table-hover " style="text-align: center;"><thead class="table-dark"><tr><th scope="col" style="text-align: center;">DATE</th><th scope="col" style="text-align: center;">STATUS</th></thead><tbody>';
+
+    for ($i = 0 ; $i < $total ; $i++){
+      echo "<tr><td>".$dates[$i]."</td><td>".$arr[$i]."</td></tr>";
+    }
+
+    if ($total > 0){
+
+      $percentage = ($counter/$total )*100;
+
+      echo '<tr><td>TOTAL</td><td>'.$counter.'/'.$total.' = '.$percentage.' % </td></tr>';
+
+
+    }
+    else {
+      echo '<tr><td> - </td><td> - </td></tr>';
+    }
+
+
+
+    echo '</tbody></table>';
+
+
+
+    
+  $conn->close();
 
   ?>
 
-    </tbody></table>
+  <br><br>
 
-    <form action="admin.php" method="post"> 
+    <form action="stud_view_attendance.php" method="post"> 
       <center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
     </form>
 

@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(!isset($_SESSION['logged_in_fac_id'])){
+    echo '<script type="text/javascript"> location.href = "faculty_login.php" </script>';
+}
 ?>
 
 <!DOCTYPE html>
