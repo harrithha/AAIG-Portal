@@ -1,18 +1,36 @@
 <?php 
 session_start();
 
-$host = "localhost";
-$username = "root";
-$password = "";
-$dbname = "hac";
+if(!isset($_SESSION['logged_in__admin_name'])){
+    echo '<script type="text/javascript"> location.href = "admin_login.php" </script>';
+}
 
-$conn = new mysqli($host, $username, $password, $dbname);
+else{
+  $host = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "hac";
 
-$rollno = $_POST['roll'];
+  $conn = new mysqli($host, $username, $password, $dbname);
 
-$sql = "SELECT * FROM student where rollNo ='$rollno'";
+  if(isset($_POST['roll'])){
+     $rollno = $_POST['roll'];
 
-$result = $conn->query($sql);
+     $sql = "SELECT * FROM student where rollNo ='$rollno'";
+
+     $result = $conn->query($sql);
+
+   }
+
+  else{
+      echo '<script type="text/javascript"> location.href = "view_student_detail.php" </script>';
+   }
+
+
+}
+
+
+
 
 ?>
 

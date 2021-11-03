@@ -2,6 +2,10 @@
 
 session_start();
 
+if(!isset($_SESSION['logged_in__admin_name'])){
+    echo '<script type="text/javascript"> location.href = "admin_login.php" </script>';
+}
+
 $host = "localhost";
 $username = "root";
 $password = "";

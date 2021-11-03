@@ -24,6 +24,14 @@ while($row = $result->fetch_assoc()) {
     $_SESSION['logged_in__stu_roll'] = $roll;
     $_SESSION['logged_in_stu_pass'] = $pass;
 
+
+    if(isset($_SESSION['logged_in__admin_name'])){
+        unset($_SESSION['logged_in__admin_name']);
+    }
+    if(isset($_SESSION['logged_in_fac_id'])){
+        unset($_SESSION['logged_in_fac_id']);
+    }
+
     }
 
     else {

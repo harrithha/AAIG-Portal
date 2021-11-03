@@ -1,6 +1,10 @@
 <?php 
 session_start();
 
+if(!isset($_SESSION['logged_in_fac_id'])){
+    echo '<script type="text/javascript"> location.href = "faculty_login.php" </script>';
+}
+
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -48,6 +52,7 @@ $course = $_POST['course'];
   <link rel="stylesheet" type="text/css" href="css_add/util.css">
   <link rel="stylesheet" type="text/css" href="css_add/main.css">
   <link rel="stylesheet" type="text/css" href="css_add/main.css">
+  <link rel="stylesheet" type="text/css" href="v.css">
 
 </head>
 <body>
@@ -65,12 +70,14 @@ $course = $_POST['course'];
     $sql = "SELECT * FROM $tname ";
     $result = $conn->query($sql);
 
+    
+
     echo '<h3 class="contact100-form-title"><center>'.$course.'</center></h3>';
     echo '<div class="test"><table class = "table table-hover table-responsive"><thead class="table-dark"><tr><th scope="col">Roll no </th><th scope="col">Name </th>';
+    echo '<table class = " table table-hover table-responsive"><thead class="table-dark"><tr><th scope="col">Roll no </th><th scope="col">Name </th>';
 
     if ($result->num_rows > 0) {
-       while($row = $result->fetch_assoc()) {
-    
+       while($row = $result->fetch_assoc()) {    
         echo '<th scope="col">' . $row["date"]. '</th>';
       }
     }
@@ -107,6 +114,9 @@ $course = $_POST['course'];
     }
 
     echo '</tbody></thead></div>';
+    else {
+      echo '<tr><td> - </td><td> - </td></tr>';
+    }
 
 
     

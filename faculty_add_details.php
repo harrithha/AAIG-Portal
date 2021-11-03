@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+if(!isset($_SESSION['logged_in_fac_id'])){
+    echo '<script type="text/javascript"> location.href = "faculty_login.php" </script>';
+}
+
+else{
+
 $id = $_SESSION['logged_in_fac_id'];
 $host = "localhost";
 $username = "root";
@@ -26,7 +33,10 @@ if ($result->num_rows > 0) {
 
   }
 } 
-$conn->close();
+$conn->close();	
+}
+
+
 ?>
 
 <!DOCTYPE html>
