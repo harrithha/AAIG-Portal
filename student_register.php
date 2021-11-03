@@ -1,6 +1,12 @@
 <?php
 session_start();
-$id = $_SESSION['logged_in__stu_roll'];
+if(!isset($_SESSION['logged_in__stu_roll'] )){
+    echo '<script type="text/javascript"> location.href = "student_login.php" </script>';
+} 
+
+else{
+
+	$id = $_SESSION['logged_in__stu_roll'];
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -38,6 +44,9 @@ if ($result->num_rows > 0) {
 
   }
 } 
+
+}
+
 ?>
 
 <!DOCTYPE html>

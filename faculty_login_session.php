@@ -22,14 +22,21 @@ while($row = $result->fetch_assoc()) {
         echo '<script type="text/javascript"> location.href = "faculty.php" </script>';
     $_SESSION['logged_in_fac_id'] = $id;
     $_SESSION['logged_in_fac_pass'] = $pass;
+    
+    if(isset($_SESSION['logged_in__stu_roll'] )){
+        unset($_SESSION['logged_in__stu_roll']);
     }
+    if(isset($_SESSION['logged_in__admin_name'])){
+        unset($_SESSION['logged_in__admin_name']);
+    }
+
+   }
 
     else {
         session_destroy();
     	echo "<script type='text/javascript'>alert('Wrong login credinals'); </script>";
         echo '<script type="text/javascript"> location.href = "faculty_login.php" </script>';
     }
-
 }
 }
 else {
@@ -37,6 +44,7 @@ else {
       echo "<script type='text/javascript'>alert('Wrong login credinals'); </script>";
       echo '<script type="text/javascript"> location.href = "faculty_login.php" </script>';
 }
+
 
 
 ?>

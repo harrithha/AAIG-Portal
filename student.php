@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(!isset($_SESSION['logged_in__stu_roll'] )){
+    echo '<script type="text/javascript"> location.href = "student_login.php" </script>';
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +27,9 @@ session_start();
             </a>
             <a href="student_profile.php" class="nav-item nav-link ">
               <i class="bi-person"></i> VIEW PROFILE
+            </a>
+            <a href="stud_view_attendance.php" class="nav-item nav-link ">
+            <i class="bi bi-card-list"></i> VIEW ATTENDANCE
             </a>
             <a href="" class="nav-item nav-link ">
             <i class="bi bi-card-list"></i> VIEW ID CARD

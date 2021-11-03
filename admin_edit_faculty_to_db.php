@@ -1,5 +1,11 @@
 <?php
 session_start();
+if(!isset($_SESSION['logged_in__admin_name'])){
+    echo '<script type="text/javascript"> location.href = "admin_login.php" </script>';
+}
+
+else{
+
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -68,6 +74,11 @@ if ($conn->query($sql) === TRUE) {
 else {
   //echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
+
+}
+
+
 
 ?>
 

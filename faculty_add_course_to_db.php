@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+if(!isset($_SESSION['logged_in_fac_id'])){
+    echo '<script type="text/javascript"> location.href = "faculty_login.php" </script>';
+}
+
+else{
+
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -53,6 +59,11 @@ if ($conn->query($sql) === TRUE) {
 else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
+
+}
+
+
 
 ?>
 <!DOCTYPE html>

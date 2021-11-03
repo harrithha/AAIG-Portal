@@ -24,6 +24,15 @@ while($row = $result->fetch_assoc()) {
 
     $_SESSION['logged_in__admin_name'] = $name;
     $_SESSION['logged_in_admin_pass'] = $pass;
+
+    if(isset($_SESSION['logged_in__stu_roll'] )){
+        unset($_SESSION['logged_in__stu_roll']);
+    }
+
+    if(isset($_SESSION['logged_in_fac_id'])){
+        unset($_SESSION['logged_in_fac_id']);
+    }
+
     }
 
     else {

@@ -1,9 +1,10 @@
 <?php 
 session_start();
-
-if(!isset($_SESSION['logged_in__admin_name'])){
-    echo '<script type="text/javascript"> location.href = "admin_login.php" </script>';
+if(!isset($_SESSION['logged_in__stu_roll'] )){
+    echo '<script type="text/javascript"> location.href = "student_login.php" </script>';
 }
+
+else{
 
 $host = "localhost";
 $username = "root";
@@ -12,9 +13,10 @@ $dbname = "hac";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
-$sql = "SELECT * FROM faculty";
+$roll = $_SESSION['logged_in__stu_roll'];
 
-$result = $conn->query($sql);
+}
+
 
 ?>
 
@@ -23,7 +25,7 @@ $result = $conn->query($sql);
 <html>
 <head>
     <meta charset="utf-8">
-    <title>View Faculty</title>
+    <title>ATTENDANCE</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
@@ -59,25 +61,35 @@ $result = $conn->query($sql);
   <div class="container-contact100" style="background-image: url('images_add/bg-01.jpg');">
     <div class="wrap-contact100" >
 
-    <h1 class="contact100-form-title"><center>FACULTY DETAILS</center></h1>
+    <h1 class="contact100-form-title"><center>COURSES</center></h1>
 
-    <table class = "table table-hover"><thead class="table-dark"><tr><th scope="col">ID </th><th scope="col">Name </th><th scope="col">View Details</th></tr></thead><tbody>
+    <table class = "table table-hover " style="text-align: center;"><thead class="table-dark"><tr><th scope="col" style="text-align: center;">Course Name</th><th scope="col"style="text-align: center;">View Attendance</th></tr></thead><tbody>
 
     <?php
 
+    $sql = "SELECT * FROM student WHERE rollNo = '$roll'";
+
+    $result = $conn->query($sql);
+
     if ($result->num_rows > 0) {
        while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["id"]. "</td><td> ".$row["name"]. "</td>";
 
-        echo '<td><form action="faculty_detail.php" method="post"><button type="submit" class="btn btn-outline-primary" name="id" value="'.$row["id"].'">VIEW</button></form></td></tr>';
-        }
+        $arr = explode(",", $row["listOfCourses"]);
+        foreach ($arr as  $value) {
+
+        echo "<tr><td>" . $value. "</td>";
+
+        echo '<td><form action="view_course_attendance.php" method="post"><center><button type="submit" class="btn btn-outline-primary" name="course" value="'.$value.'">VIEW</button></center></form></td></tr>';
+       }
+    }
   }
+  $conn->close();
 
   ?>
 
     </tbody></table>
 
-    <form action="admin.php" method="post"> 
+    <form action="student.php" method="post"> 
       <center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
     </form>
 
