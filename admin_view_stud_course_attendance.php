@@ -30,7 +30,7 @@ $roll = $_SESSION['roll'];
 
 ?>
 
-
+<?php include("sidebar_admin.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>

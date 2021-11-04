@@ -81,7 +81,7 @@ else {
 
 
 ?>
-
+<?php include("sidebar_admin.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>

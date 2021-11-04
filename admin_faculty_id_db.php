@@ -1,33 +1,32 @@
 <?php
 session_start();
-if(!isset($_SESSION['logged_in__stu_roll'] )){
-    echo '<script type="text/javascript"> location.href = "student_login.php" </script>';
-    exit();
+if(!isset($_SESSION['logged_in__admin_name'])){
+    echo '<script type="text/javascript"> location.href = "admin_login.php" </script>';
 }
 
-$id = $_SESSION['logged_in__stu_roll'];
+else{
+
 $host = "localhost";
 $username = "root";
 $password = "";
 $dbname = "hac";
 
 $conn = new mysqli($host, $username, $password, $dbname);
-
-$sql = "SELECT * FROM student WHERE rollNo = '$id'";
+$id = $_POST['RollNo'];
+$sql = "SELECT * FROM faculty WHERE id = '$id'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
   // echo "Successful !" ;
-   $p_roll = $row['rollNo'];
+   $p_roll = $row['id'];
    $p_name = $row['name'];
-   $p_branch = $row['branch'];
+   $p_dept = $row['department'];
    $p_gender = $row['gender'];
    $p_age = $row['age'];
    $p_bg = $row['bloodGroup'];
-   $p_passing_year = $row['passingYear'];
-   $p_programme = $row['programme'];
    $p_phone = $row['phone'];
+   $p_jd = $row['join_date'];
    $p_dob = $row['dob'];
 
   }
@@ -37,11 +36,11 @@ $temp = strtotime($p_dob);
 $date_display = date('d/m/Y',$temp); 
 // echo $date_input;    
 $found = 0;
-$directory = "images_student";
+$directory = "images_faculty";
 $images = glob($directory . "/*.jpg");
 foreach($images as $image)
 {
-    if($image == "images_student/".$p_roll.".jpg")
+    if($image == "images_faculty/".$p_roll.".jpg")
     {
         $display_id_image = $image;
         $found = 1;
@@ -51,22 +50,24 @@ foreach($images as $image)
 }
 if($found == 0)
 {
-    echo "<script type='text/javascript'>alert('Please upload your photo from the EDIT DETAILS tab to view ID CARD!'); </script>";
-    echo '<script type="text/javascript"> location.href = "student_add_own_details.php" </script>';
+    echo "<script type='text/javascript'>alert('Please ask faculty to upload photo!'); </script>";
+    echo '<script type="text/javascript"> location.href = "admin.php" </script>';
     exit();
   $display_id_image = " ";
 }
+}
 ?>
-<?php include("sidebar_student.php"); ?>
+<?php include("sidebar_admin.php"); ?>
 <!DOCTYPE html>
 <html lang=en>
+
 
 <head>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css" rel="stylesheet">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/idcard.css?version=1">
+    <link rel="stylesheet" href="css/idcard.css">
 </head>
 
 <body>
@@ -85,7 +86,7 @@ if($found == 0)
                                     <div class="m-b-25"> <img src=<?php echo"$display_id_image" ?> style = "height: 75px; width: 75px; border-radius: 10px" class="img-radius" alt="User-Profile-Image">
                                     </div>
                                     <h6 class="f-w-600" style="font-family:Verdana, Geneva, Tahoma, sans-serif;">
-                                        <?php echo $p_name?></h6>
+                                    <?php echo $p_name?> </h6>
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -93,15 +94,15 @@ if($found == 0)
                                     <h5 class="m-b-20 p-b-5 b-b-default f-w-600">INFORMATION</h5>
                                     <div class="row">
                                         <div class="col col-sm-6">
-                                            <b>PROGRAMME :</b>
+                                            <b>DEPARTMENT :</b>
                                         </div>
                                         <div class="col col-sm-6">
-                                        <?php echo $p_programme?>
+                                        <?php echo $p_dept?>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col col-sm-6">
-                                            <b>ROLLNo :</b>
+                                            <b>ID :</b>
                                         </div>
                                         <div class="col col-sm-6">
                                         <?php echo $p_roll?>

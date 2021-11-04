@@ -55,7 +55,7 @@ if($found == 0)
   $display_id_image = " ";
 }
 ?>
-
+<?php include("sidebar_faculty.php"); ?>
 <!DOCTYPE html>
 <html lang=en>
 
@@ -75,7 +75,7 @@ if($found == 0)
                 <div class="col-xl-6 col-md-12">
                     <div class="card user-card-full">
                         <div class="card-header">
-                            <img src="images/icons/iitdh .jpg" class="img-radius" alt="User-Profile-Image">
+                            <img src="images/icons/iitdh.jpg" class="img-radius" alt="User-Profile-Image">
                             <b><i>INDIAN INSTITUTE OF TECHNOLOGY DHARWAD </i></b>
                         </div>
                         <div class="row m-l-0 m-r-0">

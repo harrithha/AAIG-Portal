@@ -33,7 +33,7 @@ else{
 
 
 ?>
-
+<?php include("sidebar_student.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>

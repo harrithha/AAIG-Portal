@@ -46,7 +46,7 @@ if ($result->num_rows > 0) {
   }
 } 
 ?>
-
+<?php include("sidebar_student.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

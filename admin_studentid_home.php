@@ -1,48 +1,28 @@
 <?php
+
 session_start();
 
-if(!isset($_SESSION['logged_in_fac_id'])){
-    echo '<script type="text/javascript"> location.href = "faculty_login.php" </script>';
+if(!isset($_SESSION['logged_in__admin_name'])){
+    echo '<script type="text/javascript"> location.href = "admin_login.php" </script>';
 }
 
-else{
-
-$id = $_SESSION['logged_in_fac_id'];
 $host = "localhost";
 $username = "root";
 $password = "";
 $dbname = "hac";
 
 $conn = new mysqli($host, $username, $password, $dbname);
+$conn->close();
 
-$sql = "SELECT * FROM faculty WHERE id = '$id'";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-  // echo "Successful !" ;
-   $p_roll = $row['id'];
-   $p_name = $row['name'];
-   $p_dept = $row['department'];
-   $p_gender = $row['gender'];
-   $p_age = $row['age'];
-   $p_bg = $row['bloodGroup'];
-   $p_phone = $row['phone'];
-   $p_jd = $row['join_date'];
-   $p_dob = $row['dob'];
 
-  }
-} 
-$conn->close();	
-}
 
 
 ?>
-<?php include("sidebar_faculty.php"); ?>
+<?php include("sidebar_admin.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Add Student</title>
+	<title>GENERATE STUDENT ID CARD</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -75,93 +55,17 @@ $conn->close();
 
 	<div class="container-contact100" style="background-image: url('images_add/bg-01.jpg');">
 		<div class="wrap-contact100" >
-			<form class="contact100-form validate-form" action="faculty_add_details_to_db.php" method="post" enctype="multipart/form-data">
+			<form class="contact100-form validate-form" action="admin_student_id_db.php" method="post">
 				<span class="contact100-form-title">
-					EDIT DETAILS
+					ENTER STUDENT ROLL NUMBER
 				</span>
-				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Roll Number">
-					<span class="label-input100">ID</span>
-					<input class="input100" type="number" name="RollNo" placeholder="Enter Your Roll Number" <?php echo "value='$p_roll'"; ?>>
+				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Student Roll Number">
+					<span class="label-input100">ROLL NUMBER</span>
+					<input class="input100" type="number" name="RollNo" placeholder="Enter Student Roll Number" >
 				</div>
-
-				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
-					<span class="label-input100">FULL NAME</span>
-					<input class="input100" type="text" <?php echo ($p_gender === 'male') ? 'checked' : '';?> name="name" placeholder="Enter Your Name" <?php echo "value='$p_name'"; ?>>
-				</div>
-
-				<div class="wrap-contact100-form-radio">
-					<span class="label-input100">GENDER</span><br><br>
-                <div class="r">
-					<div class="contact100-form-radio">
-						<input class="input-radio100" id="radio1" <?php echo ($p_gender === 'male') ? 'checked' : '';?> type="radio" name="gender" value="male">
-						<label class="label-radio100" for="radio1">
-							Male
-						</label>
-					</div>
-
-					<div class="contact100-form-radio">
-						<input class="input-radio100" <?php echo ($p_gender === 'female') ? 'checked' : '';?> id="radio2"  type="radio" name="gender" value="female">
-						<label class="label-radio100" for="radio2">
-							Female
-						</label>
-					</div>
-
-					<div class="contact100-form-radio">
-						<input class="input-radio100" id="radio3"  type="radio"  <?php echo ($p_gender === 'other') ? 'checked' : '';?> name="gender" value="other">
-						<label class="label-radio100" for="radio3">
-							Other
-						</label>
-					</div>
-				</div>
-			</div>
-
-			<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Phone Number">
-				<span class="label-input100">PHONE NUMBER</span>
-				<input class="input100" type="phone" <?php echo "value='$p_phone'"; ?> name="Phone" placeholder="Enter Phone No.">
-			</div>
-
-			<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Blood Group">
-				<span class="label-input100">BLOOD GROUP (Format : A+, O-, etc)</span>
-				<input class="input100" type="text" name="blood_group" <?php echo "value='$p_bg'"; ?> placeholder="Enter Blood Group">
-			</div>
-
-			<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your DOB">
-				<span class="label-input100">DATE OF BIRTH</span>
-				<input class="input100" type="date" name="DOB" <?php echo "value='$p_dob'"; ?> placeholder="Enter DOB">
-			</div>
-
-	        <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Age">
-					<span class="label-input100">AGE</span>
-					<input class="input100" type="number" name="Age" placeholder="Enter Age" <?php echo "value='$p_age'"; ?>>
-			</div>
-
-            <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your DOB">
-				<span class="label-input100">JOINING DATE</span>
-				<input class="input100" type="date" name="JD" <?php echo "value='$p_jd'"; ?> placeholder="Enter Join Date">
-			</div>
-
-				<div class="wrap-input100 input100-select bg1">
-					<span class="label-input100">DEPARTMENT</span>
-					<div>
-						<select class="js-select2" name="Dept">
-							<option value="CSE" <?php echo ($p_dept === 'CSE') ? 'selected' : '';?>>Computer Science and Engineering</option>
-							<option value="EE" <?php echo ($p_dept === 'EE') ? 'selected' : '';?>>Electrical Engineering</option>
-							<option value="MMAE" <?php echo ($p_dept === 'MMAE') ? 'selected' : '';?>>Mechanical, Materials and Aerospace Engineering</option>
-							<option value="EP" <?php echo ($p_dept === 'EP') ? 'selected' : '';?>>Engineering Physics</option>
-						</select>
-						<div class="dropDownSelect2"></div>
-					</div>
-				</div>
-
-                <div class="wrap-input100 validate-input bg1"> 
-				<span class="label-input100">ADD PHOTO</span> <br>
-				<input type="file" name="image" />
-			    </div>
-
-
-				<div class="container-login100-form-btn m-t-32">
+        <div class="container-login100-form-btn m-t-32">
 					<button class="login100-form-btn">
-						Edit Details
+						Proceed to Generate ID Card
 					</button>
 				</div>
 			</form>
@@ -245,3 +149,4 @@ $conn->close();
 
 </body>
 </html>
+

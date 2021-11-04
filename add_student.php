@@ -6,7 +6,7 @@ if(!isset($_SESSION['logged_in__admin_name'])){
     echo '<script type="text/javascript"> location.href = "admin_login.php" </script>';
 }
 ?>
-
+<?php include("sidebar_admin.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,11 +1,13 @@
 <?php
 session_start();
-if(!isset($_SESSION['logged_in__stu_roll'] )){
-    echo '<script type="text/javascript"> location.href = "student_login.php" </script>';
-    exit();
+
+if(!isset($_SESSION['logged_in__admin_name'])){
+    echo '<script type="text/javascript"> location.href = "admin_login.php" </script>';
 }
 
-$id = $_SESSION['logged_in__stu_roll'];
+else{
+
+$id = $_POST['RollNo'];
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -51,13 +53,14 @@ foreach($images as $image)
 }
 if($found == 0)
 {
-    echo "<script type='text/javascript'>alert('Please upload your photo from the EDIT DETAILS tab to view ID CARD!'); </script>";
-    echo '<script type="text/javascript"> location.href = "student_add_own_details.php" </script>';
+    echo "<script type='text/javascript'>alert('Please ask student to upload photo!'); </script>";
+    echo '<script type="text/javascript"> location.href = "admin.php" </script>';
     exit();
   $display_id_image = " ";
 }
+}
 ?>
-<?php include("sidebar_student.php"); ?>
+<?php include("sidebar_admin.php"); ?>
 <!DOCTYPE html>
 <html lang=en>
 

@@ -71,6 +71,7 @@ if ($conn->query($sql) === TRUE) {
 
 
 ?>
+<?php include("sidebar_admin.php"); ?>
 <!DOCTYPE html>
 <html>
 

@@ -5,7 +5,7 @@ if(!isset($_SESSION['logged_in__admin_name'])){
 }
 ?>
 
-
+<?php include("sidebar_admin.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

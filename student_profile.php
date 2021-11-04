@@ -18,7 +18,7 @@ $sql = "SELECT * FROM student where rollNo ='$rollno'";
 $result = $conn->query($sql);
 
 ?>
-
+<?php include("sidebar_student.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>

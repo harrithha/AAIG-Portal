@@ -1,5 +1,5 @@
 <?php
-$id = $_SESSION['logged_in__admin_name'];
+$id = $_SESSION['logged_in__stu_roll'];
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -7,6 +7,16 @@ $dbname = "hac";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
+$sql = "SELECT * FROM student WHERE rollNo = '$id'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+  // echo "Successful !" ;
+   $p_name = $row['name'];
+
+  }
+} 
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +35,7 @@ $conn = new mysqli($host, $username, $password, $dbname);
             <div class="logo-details">
                 <i class='bx bxs-user icon'></i>
                 <div class="logo_name">
-                    ADMIN
+                    FACULTY
                 </div>
                 <i class='bx bx-menu' id="btn"></i>
             </div>
@@ -44,73 +54,46 @@ $conn = new mysqli($host, $username, $password, $dbname);
                     <span class="tooltip">HOME</span>
                 </li>
                 <li>
-                    <a href="admin_add_faculty.php">
+                    <a href="student_add_own_details.php">
                         <i class='bx bx-user'></i>
-                        <span class="links_name">ADD FACULTY</span>
+                        <span class="links_name">EDIT DETAILS</span>
                     </a>
-                    <span class="tooltip">ADD FACULTY</span>
+                    <span class="tooltip">EDIT DETAILS</span>
                 </li>
                 <li>
-                    <a href="admin_edit_faculty_home.php">
+                    <a href="student_profile.php">
                         <i class='bx bx-user'></i>
-                        <span class="links_name">EDIT FACULTY DETAILS</span>
+                        <span class="links_name">VIEW PROFILE</span>
                     </a>
-                    <span class="tooltip">EDIT FACULTY DETAILS</span>
+                    <span class="tooltip">VIEW PROFILE</span>
                 </li>
                 <li>
-                    <a href="view_faculty_detail.php">
+                    <a href="student_register.php">
                         <i class='bx bx-user'></i>
-                        <span class="links_name">VIEW FACULTY DETAILS</span>
+                        <span class="links_name">REGISTER FOR COURSE</span>
                     </a>
-                    <span class="tooltip">VIEW FACULTY DETAILS</span>
+                    <span class="tooltip">REGISTER FOR COURSE</span>
                 </li>
                 <li>
-                    <a href="add_student.php">
-                        <i class='bx bx-user'></i>
-                        <span class="links_name">ADD STUDENT</span>
-                    </a>
-                    <span class="tooltip">ADD STUDENT</span>
-                </li>
-                <li>
-                    <a href="edit_home.php">
-                        <i class='bx bx-user'></i>
-                        <span class="links_name">EDIT STUDENT DETAILS</span>
-                    </a>
-                    <span class="tooltip">EDIT STUDENT DETAILS</span>
-                </li>
-                <li>
-                    <a href="view_student_detail.php">
-                        <i class='bx bx-user'></i>
-                        <span class="links_name">VIEW STUDENT DETAILS</span>
-                    </a>
-                    <span class="tooltip">VIEW STUDENT DETAILS</span>
-                </li>
-                <li>
-                    <a href="">
+                    <a href="stud_view_attendance.php">
                         <i class='bx bx-user'></i>
                         <span class="links_name">VIEW ATTENDANCE</span>
                     </a>
                     <span class="tooltip">VIEW ATTENDANCE</span>
                 </li>
                 <li>
-                    <a href="admin_studentid_home.php">
+                    <a href="display_student_idcard.php">
                         <i class='bx bx-user'></i>
-                        <span class="links_name">GENERATE STUDENT ID CARD</span>
+                        <span class="links_name">VIEW ID CARD</span>
                     </a>
-                    <span class="tooltip">GENERATE STUDENT ID CARD</span>
+                    <span class="tooltip">VIEW ID CARD</span>
                 </li>
-                <li>
-                    <a href="admin_facultyid_home.php">
-                        <i class='bx bx-user'></i>
-                        <span class="links_name">GENERATE FACULTY ID CARD</span>
-                    </a>
-                    <span class="tooltip">GENERATE FACULTY ID CARD</span>
                 <li class="profile">
                     <div class="profile-details">
                         <img src="" alt="user Image">
                         <div class="name_job">
-                            <div class="name"><?php echo $id ?></div>
-                            <div class="job">ADMIN</div>
+                            <div class="name"><?php echo $p_name ?></div>
+                            <div class="job">STUDENT</div>
                         </div>
                     </div>
                     <a href="admin_login.php"><i class='bx bx-log-out' id="log_out"></i></a>

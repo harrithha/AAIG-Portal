@@ -19,7 +19,7 @@ $sql = "SELECT * FROM faculty where id ='$id'";
 $result = $conn->query($sql);
 
 ?>
-
+<?php include("sidebar_faculty.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>

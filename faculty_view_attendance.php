@@ -16,7 +16,7 @@ $id = $_SESSION['logged_in_fac_id'];
 
 ?>
 
-
+<?php include("sidebar_faculty.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>

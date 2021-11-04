@@ -96,7 +96,7 @@ else {
 
 
 ?>
-
+<?php include("sidebar_faculty.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>

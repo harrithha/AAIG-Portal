@@ -17,7 +17,7 @@ $conn = new mysqli($host, $username, $password, $dbname);
 
 ?>
 
-
+<?php include("sidebar_admin.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
