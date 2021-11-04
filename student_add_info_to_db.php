@@ -71,7 +71,9 @@ $diff = date_diff(date_create($DOB), date_create($today));
 $age_actual = $diff->format('%y');
 if($age_actual != $age)
 {
-  _student
+  echo "<script type='text/javascript'>alert('Enter correct age according to DOB'); </script>";
+    echo '<script type="text/javascript"> location.href = "student_add_own_details.php" </script>';
+    exit();
 }
 // Blood Group
 $available_bgs = array("A+", "A-", "B+", "B-","AB+", "AB-", "O+", "O-");

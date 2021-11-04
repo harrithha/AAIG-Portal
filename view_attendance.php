@@ -51,7 +51,6 @@ $course = $_POST['course'];
 <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="css_add/util.css">
   <link rel="stylesheet" type="text/css" href="css_add/main.css">
-  <link rel="stylesheet" type="text/css" href="css_add/main.css">
   <link rel="stylesheet" type="text/css" href="v.css">
 
 </head>
@@ -73,7 +72,6 @@ $course = $_POST['course'];
     
 
     echo '<h3 class="contact100-form-title"><center>'.$course.'</center></h3>';
-    echo '<div class="test"><table class = "table table-hover table-responsive"><thead class="table-dark"><tr><th scope="col">Roll no </th><th scope="col">Name </th>';
     echo '<table class = " table table-hover table-responsive"><thead class="table-dark"><tr><th scope="col">Roll no </th><th scope="col">Name </th>';
 
     if ($result->num_rows > 0) {
@@ -112,9 +110,7 @@ $course = $_POST['course'];
         echo '<td>'.$counter.'/'.$total.'</td></tr>';
       }
     }
-
-    echo '</tbody></thead></div>';
-    else {
+  else {
       echo '<tr><td> - </td><td> - </td></tr>';
     }
 
