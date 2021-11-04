@@ -59,18 +59,18 @@ $conn->close();
 			<h1 class="contact100-form-title">VIEW ATTENDANCE</h1>
 		<div class="container p-3 my-3 border">
 			<form action="course_wise_attendance.php" method="post">
-				<h3><center>Course wise</center></h3><br>
+				<h3><center>Course wise</center></h3>
 
 				<center><button type="submit" value="course" class="btn btn-outline-primary" name="course">VIEW</button></center>
 			</form>
-		</div><br>
+		</div>
         <div class="container p-3 my-3 border">
 			<form action="roll_wise_attendance.php" method="post">
-				<h3><center>Student</center></h3><br>
+				<h3><center>Student</center></h3>
 				<center><button type="submit" value="roll" class="btn btn-outline-primary" name="rollNo">VIEW</button></center>
 			</form>
 		</div>
-  <br><br>
+  <br>
 
     <form action="admin.php" method="post"> 
       <center><button type="submit" class="btn btn-outline-dark">BACK</button></center>

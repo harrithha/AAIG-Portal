@@ -113,10 +113,11 @@ $course = $_POST['course'];
       }
     }
 
-    echo '</tbody></thead></div>';
+    
     else {
       echo '<tr><td> - </td><td> - </td></tr>';
     }
+    echo '</tbody></thead></div>';
 
 
     

@@ -3,9 +3,9 @@
 session_start();
 if(!isset($_SESSION['logged_in__stu_roll'] )){
     echo '<script type="text/javascript"> location.href = "student_login.php" </script>';
+    exit();
 }
 
-else{
 
 $host = "localhost";
 $username = "root";
@@ -113,7 +113,7 @@ else {
 }
 
 
-}
+
 
 
 
