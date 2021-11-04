@@ -32,7 +32,7 @@ if ($date != ""){
 
     $sql = "SELECT * FROM $tname WHERE date = '$date'";
     $result = $conn->query($sql);
-    if ($result->num_rows > 0){
+    if ($result !== false && $result->num_rows > 0){
           echo "<script type='text/javascript'>alert('Already marked date !'); </script>";
           echo '<script type="text/javascript"> location.href = "mark_attendance_list.php" </script>';
 
@@ -44,7 +44,7 @@ if ($date != ""){
 
     $sql = "SELECT * FROM $course ";
     $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
+    if ($result !== false && $result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
 
             $roll = $row['rollNo'];

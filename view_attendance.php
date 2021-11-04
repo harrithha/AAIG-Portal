@@ -26,7 +26,7 @@ $course = $_POST['course'];
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
   <link rel="icon" type="image/png" href="images_add/icons/favicon.ico"/>
@@ -52,6 +52,7 @@ $course = $_POST['course'];
   <link rel="stylesheet" type="text/css" href="css_add/util.css">
   <link rel="stylesheet" type="text/css" href="css_add/main.css">
   <link rel="stylesheet" type="text/css" href="v.css">
+  <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 
 </head>
 <body>
@@ -72,9 +73,9 @@ $course = $_POST['course'];
     
 
     echo '<h3 class="contact100-form-title"><center>'.$course.'</center></h3>';
-    echo '<table class = " table table-hover table-responsive"><thead class="table-dark"><tr><th scope="col">Roll no </th><th scope="col">Name </th>';
+    echo '<table id="tbl_exporttable_to_xls" class = " table table-hover table-responsive"><thead class="table-dark"><tr><th scope="col">Roll no </th><th scope="col">Name </th>';
 
-    if ($result->num_rows > 0) {
+    if ($result !== false && $result->num_rows > 0) {
        while($row = $result->fetch_assoc()) {    
         echo '<th scope="col">' . $row["date"]. '</th>';
       }
@@ -85,7 +86,7 @@ $course = $_POST['course'];
     $sql = "SELECT * FROM $course ";
     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
+    if ($result !== false && $result->num_rows > 0) {
        while($row = $result->fetch_assoc()) {
     
         echo '<tr><td>' . $row["rollNo"]. '</td><td>'.$row['name'].'</td>';
@@ -125,12 +126,25 @@ $course = $_POST['course'];
   <br><br><br>
 
     <form action="faculty_view_attendance.php" method="post"> 
-      <center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
+     <div class="b" style="display: flex; justify-content: space-evenly;">
+     <button type="submit" class="btn btn-outline-dark">BACK</button></center>
+     <button type="submit" onclick="ExportToExcel('xlsx')" class="btn btn-outline-dark">DOWNLOAD EXCEL REPORT</button>
+     </div>
     </form>
 
   </div>
 </div>
+<script>
 
+        function ExportToExcel(type, fn, dl) {
+            var elt = document.getElementById('tbl_exporttable_to_xls');
+            var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+            return dl ?
+                XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+        }
+
+    </script>
 <!--===============================================================================================-->
   <script src="vendor_add/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

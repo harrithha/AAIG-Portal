@@ -66,6 +66,7 @@ $roll = $_SESSION['roll'];
   <link rel="stylesheet" type="text/css" href="css_add/util.css">
   <link rel="stylesheet" type="text/css" href="css_add/main.css">
   <link rel="stylesheet" type="text/css" href="v.css">
+  <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 
 </head>
 <body>
@@ -119,7 +120,7 @@ $roll = $_SESSION['roll'];
     }
 
     echo '<h3 class="contact100-form-title"><center>'.$course.'</center></h3>';
-    echo '<table class = " table table-hover " style="text-align: center;"><thead class="table-dark"><tr><th scope="col" style="text-align: center;">DATE</th><th scope="col" style="text-align: center;">STATUS</th></thead><tbody>';
+    echo '<table id="tbl_exporttable_to_xls" class = " table table-hover " style="text-align: center;"><thead class="table-dark"><tr><th scope="col" style="text-align: center;">DATE</th><th scope="col" style="text-align: center;">STATUS</th></thead><tbody>';
 
     for ($i = 0 ; $i < $total ; $i++){
       echo "<tr><td>".$dates[$i]."</td><td>".$arr[$i]."</td></tr>";
@@ -151,12 +152,25 @@ $roll = $_SESSION['roll'];
   <br><br>
 
     <form action="roll_wise_attendance.php" method="post"> 
-      <center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
+    <div class="b" style="display: flex; justify-content: space-evenly;">
+     <button type="submit" class="btn btn-outline-dark">BACK</button></center>
+     <button type="submit" onclick="ExportToExcel('xlsx')" class="btn btn-outline-dark">DOWNLOAD EXCEL REPORT</button>
+     </div>
     </form>
 
   </div>
 </div>
+<script>
 
+        function ExportToExcel(type, fn, dl) {
+            var elt = document.getElementById('tbl_exporttable_to_xls');
+            var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+            return dl ?
+                XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+        }
+
+    </script>
 <!--===============================================================================================-->
   <script src="vendor_add/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

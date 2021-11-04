@@ -73,7 +73,7 @@ $_SESSION['course'] = $course;
     echo '<div class="wrap-input100 validate-input bg1"><span class="label-input300">ATTENDANCE DATE</span><input type="date" class="input100" name="date"></div>';
     echo '<table class = "table table-hover"><thead class="table-dark"><tr><th scope="col">Roll no </th><th scope="col">Name </th><th scope="col">Present</th><th scope="col">Absent</th></tr></thead><tbody>';
 
-    if ($result->num_rows > 0) {
+    if ($result !== false && $result->num_rows > 0) {
        while($row = $result->fetch_assoc()) {
     
         echo "<tr><td>" . $row["rollNo"]. "</td><td> ".$row["name"]. "</td>";

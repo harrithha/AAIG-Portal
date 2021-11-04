@@ -52,6 +52,7 @@ $conn = new mysqli($host, $username, $password, $dbname);
 <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="css_add/util.css">
   <link rel="stylesheet" type="text/css" href="css_add/main.css">
+  <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 
 </head>
 <body>
@@ -60,7 +61,7 @@ $conn = new mysqli($host, $username, $password, $dbname);
 
     <h1 class="contact100-form-title"><center>COURSES</center></h1>
 
-    <table class = "table table-hover" style="text-align: center;"><thead class="table-dark"><tr><th scope="col" style="text-align: center;">Course Name</th><th scope="col" style="text-align: center;">View Attendance</th></tr></thead><tbody>
+    <table id="tbl_exporttable_to_xls" class = "table table-hover" style="text-align: center;"><thead class="table-dark"><tr><th scope="col" style="text-align: center;">Course Name</th><th scope="col" style="text-align: center;">View Attendance</th></tr></thead><tbody>
 
     <?php
 
@@ -82,12 +83,25 @@ $conn = new mysqli($host, $username, $password, $dbname);
     </tbody></table>
 
     <form action="admin_view_attendance.php" method="post"> 
-      <center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
+    <div class="b" style="display: flex; justify-content: space-evenly;">
+     <button type="submit" class="btn btn-outline-dark">BACK</button></center>
+     <button type="submit" onclick="ExportToExcel('xlsx')" class="btn btn-outline-dark">DOWNLOAD EXCEL REPORT</button>
+     </div>
     </form>
 
   </div>
 </div>
+<script>
 
+        function ExportToExcel(type, fn, dl) {
+            var elt = document.getElementById('tbl_exporttable_to_xls');
+            var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+            return dl ?
+                XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+        }
+
+    </script>
 <!--===============================================================================================-->
   <script src="vendor_add/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
