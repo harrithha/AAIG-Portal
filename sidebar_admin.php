@@ -13,15 +13,6 @@ if (!isset($_SESSION['logged_in__admin_name'])) {
     <link rel="stylesheet" href="css/admin_main.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        .sidebar.open {
-            width: 200px;
-        }
-
-        .sidebar.open li.profile {
-            width: 200px;
-        }
-    </style>
 </head>
 
 <body>
@@ -48,22 +39,72 @@ if (!isset($_SESSION['logged_in__admin_name'])) {
                     </a>
                     <span class="tooltip">HOME</span>
                 </li>
-                <li>
-                    <a href="admin_login.php">
-                        <i class='bx bx-log-out' id="log_out"></i>
-                        <span class="links_name">Log Out</span>
-                    </a>
-                    <span class="tooltip">Log Out</span>
-                </li>
                 <br>
+                <li>
+                    <a href="admin_add_faculty.php">
+                        <i class='bx bx-user'></i>
+                        <span class="links_name">ADD FACULTY</span>
+                    </a>
+                    <span class="tooltip">ADD FACULTY</span>
+                </li>
+                <li>
+                    <a href="admin_edit_faculty_home.php">
+                        <i class='bx bx-user'></i>
+                        <span class="links_name">EDIT FACULTY DETAILS</span>
+                    </a>
+                    <span class="tooltip">EDIT FACULTY DETAILS</span>
+                </li>
+                <li>
+                    <a href="view_faculty_detail.php">
+                        <i class='bx bx-user'></i>
+                        <span class="links_name">VIEW FACULTY DETAILS</span>
+                    </a>
+                    <span class="tooltip">VIEW FACULTY DETAILS</span>
+                </li>
+                <li>
+                    <a href="add_student.php">
+                        <i class='bx bx-user'></i>
+                        <span class="links_name">ADD STUDENT</span>
+                    </a>
+                    <span class="tooltip">ADD STUDENT</span>
+                </li>
+                <li>
+                    <a href="edit_home.php">
+                        <i class='bx bx-user'></i>
+                        <span class="links_name">EDIT STUDENT DETAILS</span>
+                    </a>
+                    <span class="tooltip">EDIT STUDENT DETAILS</span>
+                </li>
+                <li>
+                    <a href="view_student_detail.php">
+                        <i class='bx bx-user'></i>
+                        <span class="links_name">VIEW STUDENT DETAILS</span>
+                    </a>
+                    <span class="tooltip">VIEW STUDENT DETAILS</span>
+                </li>
+                <li>
+                    <a href="">
+                        <i class='bx bx-user'></i>
+                        <span class="links_name">VIEW ATTENDANCE</span>
+                    </a>
+                    <span class="tooltip">VIEW ATTENDANCE</span>
+                </li>
+                <li>
+                    <a href="">
+                        <i class='bx bx-user'></i>
+                        <span class="links_name">ID CARD GENERATION</span>
+                    </a>
+                    <span class="tooltip">ID CARD GENERATION</span>
+                </li>
                 <li class="profile">
                     <div class="profile-details">
-                        <img src="images/icons/admin.png" alt="user Image">
+                        <img src="" alt="user Image">
                         <div class="name_job">
                             <div class="name">Chidaksh.R</div>
                             <div class="job">ADMIN</div>
                         </div>
                     </div>
+                    <a href="admin_login.php"><i class='bx bx-log-out' id="log_out"></i></a>
                 </li>
             </ul>
         </div>
