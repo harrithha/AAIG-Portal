@@ -126,7 +126,7 @@ $course = $_POST['course'];
 
   </tbody></table>
 
-  <br><br>
+  <br><br><br>
 
     <form action="faculty_view_attendance.php" method="post"> 
       <center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
