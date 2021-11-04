@@ -16,8 +16,6 @@ $conn = new mysqli($host, $username, $password, $dbname);
   $roll = $_POST['RollNo'];
   $_SESSION['roll'] = $roll;
 
-
-
 }
 
 
@@ -80,9 +78,15 @@ $conn = new mysqli($host, $username, $password, $dbname);
         $arr = explode(",", $row["listOfCourses"]);
         foreach ($arr as  $value) {
 
+        if($value != ''){
+
         echo "<tr><td>" . $value. "</td>";
 
         echo '<td><form action="admin_view_stud_course_attendance.php" method="post"><center><button type="submit" class="btn btn-outline-primary" name="course" value="'.$value.'">VIEW</button></center></form></td></tr>';
+         }
+         else{
+          echo "<tr><td> - </td><td> - </td></tr>";
+         }
        }
     }
   }
@@ -92,7 +96,7 @@ $conn = new mysqli($host, $username, $password, $dbname);
 
     </tbody></table>
 
-    <form action="roll_wise_attendance.php.php" method="post"> 
+    <form action="roll_wise_attendance.php" method="post"> 
       <center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
     </form>
 

@@ -77,9 +77,15 @@ $roll = $_SESSION['logged_in__stu_roll'];
         $arr = explode(",", $row["listOfCourses"]);
         foreach ($arr as  $value) {
 
+        if($value != ''){
+
         echo "<tr><td>" . $value. "</td>";
 
         echo '<td><form action="view_course_attendance.php" method="post"><center><button type="submit" class="btn btn-outline-primary" name="course" value="'.$value.'">VIEW</button></center></form></td></tr>';
+       }
+       else {
+        echo "<tr><td> - </td><td> - </td></tr>";
+       }
        }
     }
   }

@@ -4,6 +4,16 @@ session_start();
 if(!isset($_SESSION['logged_in__admin_name'])){
     echo '<script type="text/javascript"> location.href = "admin_login.php" </script>';
 }
+
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "hac";
+
+$conn = new mysqli($host, $username, $password, $dbname);
+
+$gender = $_POST['gender'];
+$course = $_POST['course'];
 ?>
 
 <!DOCTYPE html>
@@ -44,17 +54,7 @@ if(!isset($_SESSION['logged_in__admin_name'])){
     <div class="wrap-contact100">
         <div>
 <?php 
-session_start();
 
-$host = "localhost";
-$username = "root";
-$password = "";
-$dbname = "hac";
-
-$conn = new mysqli($host, $username, $password, $dbname);
-
-$gender = $_POST['gender'];
-$course = $_POST['course'];
 
 if ($gender == "all" && $course == "all"){
     echo '<script type="text/javascript"> location.href = "view_student_detail.php" </script>';
