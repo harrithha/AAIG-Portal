@@ -3,6 +3,12 @@ session_start();
 if(!isset($_SESSION['logged_in_fac_id'])){
     echo '<script type="text/javascript"> location.href = "faculty_login.php" </script>';
 }
+$id = $_SESSION['logged_in_fac_id'];
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "hac";
+
 $conn = new mysqli($host, $username, $password, $dbname);
 
 $sql = "SELECT * FROM faculty WHERE id = '$id'";
@@ -16,49 +22,32 @@ if ($result->num_rows > 0) {
   }
 } 
 ?>
-<?php include("sidebar_faculty.php"); ?>  
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
+
 <head>
-    <meta charset="utf-8">
-    <title>Faculty</title>
-    <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="sidebar_admin.php" >
-    <title>FACULTY</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/admin_main.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .sidebar.open {
+            width: 200px;
+        }
+
+        .sidebar.open li.profile {
+            width: 200px;
+        }
+    </style>
 </head>
-</head>
+
 <body>
-<!---<h2>I am admin</h2>--->
-<!-- <div class="m-4">
-        <nav class="nav nav-pills nav-justified">
-            <a href="faculty_add_details.php" class="nav-item nav-link ">
-            <i class="bi-person"></i> ADD/EDIT DETAILS
-            </a>
-            <a href="faculty_view_attendance.php" class="nav-item nav-link ">
-                <i class="bi-person"></i> VIEW ATTENDANCE
-            </a>
-            <a href="mark_attendance_list.php" class="nav-item nav-link ">
-                <i class="bi-person"></i> MARK ATTENDANCE
-            </a>
-            <a href="display_faculty_idcard.php" class="nav-item nav-link ">
-            <i class="bi bi-card-list"></i> VIEW ID CARD
-            </a>
-            <a href="faculty_add_course.php" class="nav-item nav-link ">
-            <i class="bi bi-card-list"></i> ADD NEW COURSE
-            </a>
-        </nav>
-    </div> -->
     <div class="page-wrap">
         <div class="sidebar">
             <div class="logo-details">
                 <i class='bx bxs-user icon'></i>
                 <div class="logo_name">
-                    FACULTY
+                  FACULTY
                 </div>
                 <i class='bx bx-menu' id="btn"></i>
             </div>
@@ -77,7 +66,7 @@ if ($result->num_rows > 0) {
                     <span class="tooltip">HOME</span>
                 </li>
                 <li>
-                    <a href="faculty_login.php">
+                    <a href="fsculty_login.php">
                         <i class='bx bx-log-out' id="log_out"></i>
                         <span class="links_name">Log Out</span>
                     </a>
@@ -139,4 +128,5 @@ if ($result->num_rows > 0) {
         }
     </script>
 </body>
+
 </html>

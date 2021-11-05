@@ -3,6 +3,12 @@ session_start();
 if(!isset($_SESSION['logged_in__stu_roll'] )){
     echo '<script type="text/javascript"> location.href = "student_login.php" </script>';
 }
+$id = $_SESSION['logged_in__stu_roll'];
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "hac";
+
 $conn = new mysqli($host, $username, $password, $dbname);
 
 $sql = "SELECT * FROM student WHERE rollNo = '$id'";
@@ -16,44 +22,32 @@ if ($result->num_rows > 0) {
   }
 } 
 ?>
-<?php include("sidebar_student.php"); ?>
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
+
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Student</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/admin_main.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .sidebar.open {
+            width: 200px;
+        }
+
+        .sidebar.open li.profile {
+            width: 200px;
+        }
+    </style>
 </head>
+
 <body>
-<!---<h2>I am admin</h2>--->
-<!-- <div class="m-4">
-        <nav class="nav nav-pills nav-justified">
-            <a href="student_add_own_details.php" class="nav-item nav-link ">
-            <i class="bi-person"></i> EDIT DETAILS
-            </a>
-            <a href="student_register.php" class="nav-item nav-link ">
-                <i class="bi-person"></i> REGISTER FOR COURSE
-            </a>
-            <a href="student_profile.php" class="nav-item nav-link ">
-              <i class="bi-person"></i> VIEW PROFILE
-            </a>
-            <a href="stud_view_attendance.php" class="nav-item nav-link ">
-            <i class="bi bi-card-list"></i> VIEW ATTENDANCE
-            </a>
-            <a href="display_student_idcard.php" class="nav-item nav-link ">
-            <i class="bi bi-card-list"></i> VIEW ID CARD
-            </a>
-        </nav>
-    </div> -->
     <div class="page-wrap">
         <div class="sidebar">
             <div class="logo-details">
                 <i class='bx bxs-user icon'></i>
                 <div class="logo_name">
-                    STUDENT
+                   STUDENT
                 </div>
                 <i class='bx bx-menu' id="btn"></i>
             </div>
@@ -134,5 +128,5 @@ if ($result->num_rows > 0) {
         }
     </script>
 </body>
-</html>
 
+</html>
