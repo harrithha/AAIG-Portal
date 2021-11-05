@@ -25,6 +25,7 @@ if ($result->num_rows > 0) {
 <html lang="en" dir="ltr">
 
 <head>
+    <title>STUDENT</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/admin_main.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
