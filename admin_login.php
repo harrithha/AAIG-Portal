@@ -78,7 +78,9 @@
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit" value="login">
 							Login as an Admin
-						</button>
+						</button> <br> <br> <br> <br>
+						
+						<center><a class="btn btn-outline-dark" href="index.php">HOMEPAGE</a></center>
 					</div>
 					<br><br><br><br><br>
 					<!-- <div class="flex-col-c p-t-170 p-b-40">

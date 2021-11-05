@@ -104,7 +104,9 @@
 						<button class="login100-form-btn" type="submit" value="login">
 							Login as a Student
 						</button>
-					</div>
+					</div> <br> <br>
+						
+					<center><a class="btn btn-outline-dark" href="index.php">HOMEPAGE</a></center>
 					<br><br><br><br><br>
 					<!-- <div class="flex-col-c p-t-170 p-b-40">
 						<span class="txt1 p-b-9">
