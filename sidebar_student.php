@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
             <div class="logo-details">
                 <i class='bx bxs-user icon'></i>
                 <div class="logo_name">
-                    FACULTY
+                    STUDENT
                 </div>
                 <i class='bx bx-menu' id="btn"></i>
             </div>

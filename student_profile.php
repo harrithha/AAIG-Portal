@@ -1,8 +1,11 @@
+
+
 <?php 
 session_start();
 if(!isset($_SESSION['logged_in__stu_roll'] )){
     echo '<script type="text/javascript"> location.href = "student_login.php" </script>';
 }
+include("sidebar_student.php");
 
 $host = "localhost";
 $username = "root";
@@ -18,7 +21,7 @@ $sql = "SELECT * FROM student where rollNo ='$rollno'";
 $result = $conn->query($sql);
 
 ?>
-<?php include("sidebar_student.php"); ?>
+
 <!DOCTYPE html>
 <html>
 <head>

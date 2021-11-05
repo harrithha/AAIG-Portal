@@ -11,7 +11,7 @@ $password = "";
 $dbname = "hac";
 
 $conn = new mysqli($host, $username, $password, $dbname);
-
+include("sidebar_faculty.php");
 $id = $_POST['id'];
 
 $sql = "SELECT * FROM faculty where id ='$id'";
@@ -19,7 +19,7 @@ $sql = "SELECT * FROM faculty where id ='$id'";
 $result = $conn->query($sql);
 
 ?>
-<?php include("sidebar_faculty.php"); ?>
+ 
 <!DOCTYPE html>
 <html>
 <head>
