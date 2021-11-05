@@ -32,7 +32,7 @@ else{
 <html>
 <head>
     <meta charset="utf-8">
-    <title>View Attendance</title>
+    <title>COURSE ATTENDANCE</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">

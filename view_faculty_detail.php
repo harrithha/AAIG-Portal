@@ -9,6 +9,7 @@ $host = "localhost";
 $username = "root";
 $password = "";
 $dbname = "hac";
+include("sidebar_admin.php");
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
