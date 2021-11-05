@@ -1,4 +1,15 @@
 <?php
+session_start();
+if(isset($_SESSION['logged_in__stu_roll'] )){
+  unset($_SESSION['logged_in__stu_roll']);
+}
+
+if(isset($_SESSION['logged_in_fac_id'])){
+  unset($_SESSION['logged_in_fac_id']);
+}
+if(isset($_SESSION['logged_in__stu_roll'] )){
+  unset($_SESSION['logged_in__stu_roll']);
+}
 
 $host = "localhost";
 $username = "root";
@@ -68,6 +79,7 @@ $sql = "CREATE TABLE list_of_courses (
     $conn->query($sql);
 
 $conn->close();
+
 
 ?>
 

@@ -26,6 +26,12 @@ $dbname = "hac";
 $conn = new mysqli($host, $username, $password, $dbname);
 
 $course_name = $_POST['cname'];
+
+$c_n = explode(" ", $course_name);
+$course_name = '';
+foreach ($c_n as $value) {
+    $course_name = $course_name.$value;
+}
 $date = $course_name."date";
 $sql = "SELECT * FROM list_of_courses WHERE course_name = '$course_name'";
 $result = $conn->query($sql);
@@ -63,8 +69,6 @@ else {
 
 }
 
-
-<?php include("sidebar_faculty.php"); ?>
 ?>
 <!DOCTYPE html>
 <html>
