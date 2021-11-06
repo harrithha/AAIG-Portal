@@ -15,10 +15,13 @@ $conn = new mysqli($host, $username, $password, $dbname);
 $gender = $_POST['gender'];
 $course = $_POST['course'];
 ?>
+<?php include("sidebar_admin.php"); ?>
+
 
 <!DOCTYPE html>
 <html>
 <head>
+    <title>FILTERED STUDENT VIEW</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
@@ -65,7 +68,7 @@ else if ($course == "all"){
     
     $result = $conn->query($sql);
     
-    echo '<h3 class="contact100-form-title">'.$gender.'</h3>';
+    echo '<h3 class="contact100-form-title" style="text-transform:uppercase;">'.$gender.'</h3>';
 
     echo '<table class = "table table-hover"><thead class="table-dark"><tr><th scope="col">Roll no </th><th scope="col">Name </th><th scope="col">View Details</th></tr></thead><tbody>';
 
@@ -83,7 +86,7 @@ else if ($gender == "all"){
     
     $sql = "SELECT * FROM student ";
     $result = $conn->query($sql);
-    echo '<h3 class="contact100-form-title"><center>'.$course.'</center></h3>';
+    echo '<h3 class="contact100-form-title" style="text-transform:uppercase;"><center>'.$course.'</center></h3>';
     echo '<table class = "table table-hover"><thead class="table-dark"><tr><th scope="col">Roll no </th><th scope="col">Name </th><th scope="col">View Details</th></tr></thead><tbody>';
 
     if ($result->num_rows > 0) {
@@ -111,7 +114,7 @@ else if ($gender == "all"){
 else {
     $sql = "SELECT * FROM student ";
     $result = $conn->query($sql);
-    echo '<h3 class="contact100-form-title"><center>'.$course.' and '.$gender.'</center></h3>';
+    echo '<h3 class="contact100-form-title" style="text-transform:uppercase;"><center>'.$course.' and '.$gender.'</center></h3>';
     echo '<table class = "table table-hover"><thead class="table-dark"><tr><th scope="col">Roll no </th><th scope="col">Name </th><th scope="col">View Details</th></tr></thead><tbody>';
 
     if ($result->num_rows > 0) {

@@ -86,7 +86,7 @@ $conn = new mysqli($host, $username, $password, $dbname);
                     <span class="tooltip">VIEW STUDENT DETAILS</span>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="admin_view_attendance.php">
                         <i class='bx bx-user'></i>
                         <span class="links_name">VIEW ATTENDANCE</span>
                     </a>

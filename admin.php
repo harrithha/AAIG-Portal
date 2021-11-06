@@ -9,6 +9,7 @@ if (!isset($_SESSION['logged_in__admin_name'])) {
 <html lang="en" dir="ltr">
 
 <head>
+    <title>ADMIN</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/admin_main.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -272,7 +273,27 @@ if (!isset($_SESSION['logged_in__admin_name'])) {
                                 <div class="card-content">
                                     <a href="admin_studentid_home.php">
                                         <h2>
-                                            <center>GENERATE ID CARD</center>
+                                            <center>GENERATE STUDENT ID CARD</center>
+                                        </h2>
+                                        <p></p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card">
+                                <div class="card-img" style="background-image:url('images/icons/idcard_new.jpg');">
+                                    <div class="overlay">
+                                        <div class="overlay-content">
+                                            <a href="admin_facultyid_home.php">CREATE</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-content">
+                                    <a href="admin_facultyid_home.php">
+                                        <h2>
+                                            <center>GENERATE FACULTY ID CARD</center>
                                         </h2>
                                         <p></p>
                                     </a>

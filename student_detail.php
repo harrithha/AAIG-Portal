@@ -33,12 +33,13 @@ else{
 
 
 ?>
-<?php include("sidebar_student.php"); ?>
+<?php include("sidebar_admin.php"); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>View Student</title>
+    <title>STUDENT DETAIL</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">

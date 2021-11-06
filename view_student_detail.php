@@ -5,6 +5,7 @@ if(!isset($_SESSION['logged_in__admin_name'])){
     echo '<script type="text/javascript"> location.href = "admin_login.php" </script>';
 }
 
+
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -15,13 +16,15 @@ $conn = new mysqli($host, $username, $password, $dbname);
 
 
 ?>
+<?php include("sidebar_admin.php"); ?>
+
 
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>View Student</title>
+    <title>VIEW STUDENT DETAIL</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">

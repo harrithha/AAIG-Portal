@@ -9,7 +9,7 @@ if(!isset($_SESSION['logged_in__admin_name'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Add Student</title>
+	<title>ADD FACULTY</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
