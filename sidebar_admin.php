@@ -107,7 +107,7 @@ $conn = new mysqli($host, $username, $password, $dbname);
                     <span class="tooltip">GENERATE FACULTY ID CARD</span>
                 <li class="profile">
                     <div class="profile-details">
-                        <img src="" alt="user Image">
+                        <img src="images/icons/admin.png" alt="Admin Image">
                         <div class="name_job">
                             <div class="name"><?php echo $id ?></div>
                             <div class="job">ADMIN</div>
