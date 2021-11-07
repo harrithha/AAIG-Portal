@@ -1,46 +1,9 @@
-<!-- <!DOCTYPE html>
-<html>
-
-<head>
-	<meta charset="utf-8">
-	<title>Student Login</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-</head> -->
-
-<!-- <body>
-	<h1>Student Login </h1>
-	<form action="student.php" method="post">
-		Roll no : <input type="text" name="rollNo"><br><br>
-		password : <input type="password" name="password"><br><br>
-		<input type="submit" value="login">
-	</form><br><br>
-</body> -->
-
-<!-- <body>
-	<br><br><br>
-	<h1 style="text-align:center"><b>Student Login</b></h1>
-	<br><br><br>
-	<br><br><br>
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-4">
-				<form action="student.php" method="post">
-					<div class="form-group">
-						<label for="Username">Roll no</label>
-						<input type="text" name="rollNo" class="form-control" id="rollNo" placeholder="Roll Number">
-					</div>
-					<div class="form-group">
-						<label for="Password">password</label>
-						<input type="password" name="password" class="form-control" id="password" placeholder="Password">
-					</div>
-					<button type="submit" class="btn btn-primary" value="login">Submit</button>
-				</form>
-			</div>
-		</div>
-	</div>
-</body>
-
-</html> -->
+<?php 
+session_start();
+if (isset($_SESSION['logged_in__stu_roll'])) {
+	unset($_SESSION['logged_in__stu_roll']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

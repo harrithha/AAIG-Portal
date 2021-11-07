@@ -133,7 +133,10 @@ if ($result->num_rows > 0) {
 						REGISTER FOR ABOVE SELECTED COURSES
 					</button>
 				</div>
-			</form>
+			</form><br><br>
+			<form action="student.php" method="post"> 
+    	  <center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
+      </form>
 		</div>
 	</div>
 
