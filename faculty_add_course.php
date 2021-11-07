@@ -58,7 +58,10 @@ if(!isset($_SESSION['logged_in_fac_id'])){
 						ADD NEW COURSE
 					</button>
 				</div>
-			</form>
+			</form><br><br>
+      <form action="faculty.php" method="post"> 
+          <center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
+      </form>
 		</div>
 	</div>
 

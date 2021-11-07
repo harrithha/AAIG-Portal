@@ -223,7 +223,10 @@ if ($result->num_rows > 0) {
 						Edit Details
 					</button>
 				</div>
-			</form>
+			</form><br><br>
+			<form action="edit_home.php" method="post"> 
+         <center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
+    </form>
 		</div>
 	</div>
 
