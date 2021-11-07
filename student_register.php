@@ -123,16 +123,18 @@ if ($result->num_rows > 0) {
 				  }
                 
                 }
+
+				echo '<div class="container-login100-form-btn m-t-32">
+				        <button class="login100-form-btn">REGISTER FOR ABOVE SELECTED COURSES</button>
+				        </div>';
+            }
+            else{
+            	echo'<div>No Courses are offered yet</div>';
             }
             $conn->close();
                 ?>
-			</div>
-		</div>
-				<div class="container-login100-form-btn m-t-32">
-					<button class="login100-form-btn">
-						REGISTER FOR ABOVE SELECTED COURSES
-					</button>
-				</div>
+			</div></div>
+
 			</form><br><br>
 			<form action="student.php" method="post"> 
     	  <center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
