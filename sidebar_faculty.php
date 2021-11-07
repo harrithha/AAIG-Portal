@@ -10,14 +10,13 @@ $conn = new mysqli($host, $username, $password, $dbname);
 $sql = "SELECT * FROM faculty WHERE id = '$id'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-  // echo "Successful !" ;
-   $p_name = $row['name'];
-
-  }
-} 
-?>  
+    // output data of each row
+    while ($row = $result->fetch_assoc()) {
+        // echo "Successful !" ;
+        $p_name = $row['name'];
+    }
+}
+?>
 
 
 <!DOCTYPE html>
@@ -91,7 +90,7 @@ if ($result->num_rows > 0) {
                 </li>
                 <li class="profile">
                     <div class="profile-details">
-                        <img src="" alt="user Image">
+                        <img src="images/icons/education.png" alt="Faculty Image">
                         <div class="name_job">
                             <div class="name"><?php echo $p_name ?></div>
                             <div class="job">FACULTY</div>
