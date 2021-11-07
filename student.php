@@ -56,6 +56,9 @@ if ($result->num_rows > 0) {
     <link rel="stylesheet" type="text/css" href="css_add/main.css">
     <!--===============================================================================================-->
     <style>
+        body{
+            background: rgba(204, 182, 94, 0.4);
+        }
         .sidebar.open {
             width: 225px;
         }

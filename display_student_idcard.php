@@ -140,6 +140,11 @@ if($found == 0)
             </div>
         </div>
     </div>
+    <div>
+    <form action="student.php" method="post"> 
+        <center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
+    </form>
+    </div>
 </body>
 
 </html>

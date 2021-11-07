@@ -139,6 +139,11 @@ if($found == 0)
             </div>
         </div>
     </div>
+    <div>
+    <form action="faculty.php" method="post"> 
+        <center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
+    </form>
+    </div>
 </body>
 <script>
         function printPageArea(areaID){

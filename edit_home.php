@@ -68,7 +68,10 @@ $conn->close();
 						Proceed to Edit Details
 					</button>
 				</div>
-			</form>
+			</form><br><br>
+			<form action="admin.php" method="post"> 
+         <center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
+    </form>
 		</div>
 	</div>
 
