@@ -70,7 +70,7 @@ if($found == 0)
 </head>
 
 <body>
-    <div class="page-content page-container" id="page-content">
+    <div class="page-content page-container" id="printableArea page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center">
                 <div class="col-xl-6 col-md-12">
@@ -140,5 +140,15 @@ if($found == 0)
         </div>
     </div>
 </body>
-
+<script>
+        function printPageArea(areaID){
+        var printContent = document.getElementById(areaID);
+        var WinPrint = window.open('', '', 'width=900,height=650');
+        WinPrint.document.write(printContent.innerHTML);
+        WinPrint.document.close();
+        WinPrint.focus();
+        WinPrint.print();
+        WinPrint.close();
+}
+    </script>
 </html>
