@@ -95,7 +95,7 @@ if (!isset($_SESSION['logged_in__admin_name'])) {
                         <div class="profile-details">
                             <img src="images/icons/admin.png" alt="Admin Image">
                             <div class="name_job">
-                                <div class="name">Chidaksh.R</div>
+                                <div class="name"><?php echo $_SESSION['logged_in__admin_name']?></div>
                                 <div class="job">ADMIN</div>
                             </div>
                         </div>
@@ -276,7 +276,7 @@ if (!isset($_SESSION['logged_in__admin_name'])) {
                                 <div class="card-content">
                                     <a href="admin_studentid_home.php">
                                         <h2>
-                                            <center>GENERATE STUDENT ID CARD</center>
+                                            <center>VIEW STUDENT ID CARD</center>
                                         </h2>
                                         <p></p>
                                     </a>
@@ -296,7 +296,7 @@ if (!isset($_SESSION['logged_in__admin_name'])) {
                                 <div class="card-content">
                                     <a href="admin_facultyid_home.php">
                                         <h2>
-                                            <center>GENERATE FACULTY ID CARD</center>
+                                            <center>VIEW FACULTY ID CARD</center>
                                         </h2>
                                         <p></p>
                                     </a>
