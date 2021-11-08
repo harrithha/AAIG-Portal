@@ -1,3 +1,7 @@
+*{
+  -webkit-print-color-adjust: exact
+}
+
 body {
   background-color: lightgoldenrodyellow;
 }

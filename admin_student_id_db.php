@@ -78,6 +78,7 @@ if($found == 0)
 </head>
 
 <body>
+<div id="printdivcontent">
     <div class="page-content page-container" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center">
@@ -147,6 +148,29 @@ if($found == 0)
             </div>
         </div>
     </div>
+</div>
+    <div>
+    <form action="admin.php" method="post"> 
+    <div class="b" style="display: flex; justify-content: space-evenly;">
+    <center><button type="submit" class="btn btn-outline-dark">BACK</button></center>
+    <input type="button" class="btn btn-outline-dark" onclick="PrintDiv();" value="PRINT ID CARD" />
+    </div>
+    </form>
+    </div>
 </body>
-
+<script type="text/javascript">  
+        function PrintDiv() {  
+            var divContents = document.getElementById("printdivcontent").innerHTML; 
+            alert('Please make sure to check the BACKGROUND GRAPHICS checkbox before printing under MORE SETTINGS---> OPTIONS');  
+            var printWindow = window.open('', '', 'height=900,width=900');  
+            printWindow.document.write('<html><head><title>Print DIV Content</title><link rel="stylesheet" href="css/idcard.css?version=1"><link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css" rel="stylesheet">');  
+            printWindow.document.write('</head><body >');  
+            printWindow.document.write(divContents);  
+            printWindow.document.write('</body></html>');
+            setTimeout(() => {   
+            printWindow.document.close();  
+            printWindow.print(); }, 2000);
+              
+        }  
+    </script>
 </html>
