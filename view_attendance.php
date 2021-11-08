@@ -13,7 +13,7 @@ $dbname = "hac";
 $conn = new mysqli($host, $username, $password, $dbname);
 
 $course = $_POST['course'];
-
+include("sidebar_admin.php");
 ?>
 
 
@@ -23,7 +23,7 @@ $course = $_POST['course'];
     <meta charset="utf-8">
     <title>View Attendance</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     
@@ -73,7 +73,7 @@ $course = $_POST['course'];
     
 
     echo '<h3 class="contact100-form-title"><center>'.$course.'</center></h3>';
-    echo '<table id="tbl_exporttable_to_xls" class = " table table-hover table-responsive"><thead class="table-dark"><tr><th scope="col">Roll no </th><th scope="col">Name </th>';
+    echo '<table id="tbl_exporttable_to_xls" class = " table table-hover table-responsive"><thead class="table-dark" style="background-color:black;"><tr><th scope="col">Roll no </th><th scope="col">Name </th>';
 
     if ($result !== false && $result->num_rows > 0) {
        while($row = $result->fetch_assoc()) {    
