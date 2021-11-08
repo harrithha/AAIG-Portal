@@ -31,7 +31,12 @@ if ($result->num_rows > 0) {
 
   }
 } 
-
+else
+{
+    echo "<script type='text/javascript'>alert('Faculty with this roll number does not exist!'); </script>";
+    echo '<script type="text/javascript"> location.href = "admin.php" </script>';
+    exit();
+}
 $temp = strtotime($p_dob); 
 $date_display = date('d/m/Y',$temp); 
 // echo $date_input;    
