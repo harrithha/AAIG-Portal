@@ -95,16 +95,16 @@ $conn = new mysqli($host, $username, $password, $dbname);
                 <li>
                     <a href="admin_studentid_home.php">
                         <i class='bx bx-user'></i>
-                        <span class="links_name">GENERATE STUDENT ID CARD</span>
+                        <span class="links_name">VIEW STUDENT ID CARD</span>
                     </a>
-                    <span class="tooltip">GENERATE STUDENT ID CARD</span>
+                    <span class="tooltip">VIEW STUDENT ID CARD</span>
                 </li>
                 <li>
                     <a href="admin_facultyid_home.php">
                         <i class='bx bx-user'></i>
-                        <span class="links_name">GENERATE FACULTY ID CARD</span>
+                        <span class="links_name">VIEW FACULTY ID CARD</span>
                     </a>
-                    <span class="tooltip">GENERATE FACULTY ID CARD</span>
+                    <span class="tooltip">VIEW FACULTY ID CARD</span>
                 <li class="profile">
                     <div class="profile-details">
                         <img src="images/icons/admin.png" alt="Admin Image">
