@@ -24,7 +24,7 @@ $conn = new mysqli($host, $username, $password, $dbname);
     <meta charset="utf-8">
     <title>ATTENDANCE</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -61,7 +61,7 @@ $conn = new mysqli($host, $username, $password, $dbname);
 
     <h1 class="contact100-form-title"><center>COURSES</center></h1>
 
-    <table id="tbl_exporttable_to_xls" class = "table table-hover" style="text-align: center;"><thead class="table-dark"><tr><th scope="col" style="text-align: center;">Course Name</th><th scope="col" style="text-align: center;">View Attendance</th></tr></thead><tbody>
+    <table id="tbl_exporttable_to_xls" class = "table table-hover" style="text-align: center;"><thead class="table-dark" style="background-color: black;"><tr><th scope="col" style="text-align: center;">Course Name</th><th scope="col" style="text-align: center;">View Attendance</th></tr></thead><tbody>
 
     <?php
 
