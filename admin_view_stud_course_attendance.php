@@ -37,7 +37,7 @@ $roll = $_SESSION['roll'];
     <meta charset="utf-8">
     <title>View Attendance</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -120,7 +120,7 @@ $roll = $_SESSION['roll'];
     }
 
     echo '<h3 class="contact100-form-title"><center>'.$course.'</center></h3>';
-    echo '<table id="tbl_exporttable_to_xls" class = " table table-hover " style="text-align: center;"><thead class="table-dark"><tr><th scope="col" style="text-align: center;">DATE</th><th scope="col" style="text-align: center;">STATUS</th></thead><tbody>';
+    echo '<table id="tbl_exporttable_to_xls" class = " table table-hover " style="text-align: center;"><thead class="table-dark" style="background-color:black;"><tr><th scope="col" style="text-align: center;">DATE</th><th scope="col" style="text-align: center;">STATUS</th></thead><tbody>';
 
     for ($i = 0 ; $i < $total ; $i++){
       echo "<tr><td>".$dates[$i]."</td><td>".$arr[$i]."</td></tr>";

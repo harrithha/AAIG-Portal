@@ -49,7 +49,7 @@ if(!isset($_SESSION['logged_in_fac_id'])){
 					ADD NEW COURSE
 				</span>
 				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Roll Number">
-					<span class="label-input100">ROLL NUMBER</span>
+					<span class="label-input100">COURSE CODE</span>
 					<input class="input100" type="text" name="cname" placeholder="Enter New Course Name">
 				</div>
 
