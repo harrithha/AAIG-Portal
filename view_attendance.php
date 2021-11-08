@@ -13,7 +13,7 @@ $dbname = "hac";
 $conn = new mysqli($host, $username, $password, $dbname);
 
 $course = $_POST['course'];
-include("sidebar_admin.php");
+include("sidebar_faculty.php");
 ?>
 
 

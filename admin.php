@@ -268,7 +268,7 @@ if (!isset($_SESSION['logged_in__admin_name'])) {
                                 <div class="card-img" style="background-image:url('images/icons/idcard_new.jpg');">
                                     <div class="overlay">
                                         <div class="overlay-content">
-                                            <a href="admin_studentid_home.php">CREATE</a>
+                                            <a href="admin_studentid_home.php">VIEW</a>
                                         </div>
                                     </div>
                                 </div>
@@ -288,7 +288,7 @@ if (!isset($_SESSION['logged_in__admin_name'])) {
                                 <div class="card-img" style="background-image:url('images/icons/idcard_new.jpg');">
                                     <div class="overlay">
                                         <div class="overlay-content">
-                                            <a href="admin_facultyid_home.php">CREATE</a>
+                                            <a href="admin_facultyid_home.php">VIEW</a>
                                         </div>
                                     </div>
                                 </div>

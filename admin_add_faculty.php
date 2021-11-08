@@ -63,7 +63,7 @@ if(!isset($_SESSION['logged_in__admin_name'])){
 
 				<div class="container-login100-form-btn m-t-32">
 					<button class="login100-form-btn">
-						CREATE FACUTY
+						CREATE FACULTY
 					</button>
 				</div>
 			</form><br><br>

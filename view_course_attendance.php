@@ -22,7 +22,7 @@ $roll = $_SESSION['logged_in__stu_roll'];
 
 
 ?>
-<?php include("sidebar_admin.php"); ?>
+<?php include("sidebar_student.php"); ?>
 
 <!DOCTYPE html>
 <html>

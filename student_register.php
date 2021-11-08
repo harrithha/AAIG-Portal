@@ -90,7 +90,7 @@ if ($result->num_rows > 0) {
 					REGISTER FOR A COURSE
 				</span>
 
-			<div class="wrap-contact100-form-radio">
+				<div class="wrap-contact100-form-radio">
 				<span class="label-input100">LIST OF COURSES</span><br><br>
 			<div class="r">
                 <?php
@@ -123,16 +123,20 @@ if ($result->num_rows > 0) {
 				  }
                 
                 }
-
-				echo '<div class="container-login100-form-btn m-t-32">
-				        <button class="login100-form-btn">REGISTER FOR ABOVE SELECTED COURSES</button>
-				        </div>';
             }
+
             else{
             	echo'<div>No Courses are offered yet</div>';
             }
             $conn->close();
                 ?>
+			</div>
+		</div>
+				<div class="container-login100-form-btn m-t-32">
+					<button class="login100-form-btn">
+						Register for above selected courses
+					</button>
+				</div>
 			</div></div>
 
 			</form><br><br>
