@@ -36,7 +36,7 @@ while($row = $result->fetch_assoc()) {
 
     else {
         session_destroy();
-    	echo "<script type='text/javascript'>alert('Wrong login credinals!!'); </script>";
+    	echo "<script type='text/javascript'>alert('Wrong login credentials!!'); </script>";
         echo '<script type="text/javascript"> location.href = "student_login.php" </script>';
     }
 
@@ -44,7 +44,7 @@ while($row = $result->fetch_assoc()) {
 }
 else {
       session_destroy();
-      echo "<script type='text/javascript'>alert('Wrong login credinals'); </script>";
+      echo "<script type='text/javascript'>alert('Wrong login credentials'); </script>";
         echo '<script type="text/javascript"> location.href = "student_login.php" </script>';
 }
 ?>

@@ -46,19 +46,19 @@ if(!isset($_SESSION['logged_in__admin_name'])){
 				<span class="contact100-form-title">
 					ADD FACULTY
 				</span>
-				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Roll Number">
+				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Roll Number">
 					<span class="label-input100">ID</span>
-					<input class="input100" type="number" name="RollNo" placeholder="Enter Your Roll Number">
+					<input class="input100" type="number" name="RollNo" placeholder="Enter Roll Number">
 				</div>
 
-				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
+				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Name">
 					<span class="label-input100">FULL NAME</span>
-					<input class="input100" type="text" name="name" placeholder="Enter Your Name">
+					<input class="input100" type="text" name="name" placeholder="Enter Name">
 				</div>
 
-				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Password">
+				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Password">
 					<span class="label-input100">PASSWORD</span>
-					<input class="input100" type="password" name="pass" placeholder="Enter Your Password">
+					<input class="input100" type="password" name="pass" placeholder="Enter Password">
 				</div>
 
 				<div class="container-login100-form-btn m-t-32">

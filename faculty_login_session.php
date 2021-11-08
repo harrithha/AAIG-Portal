@@ -34,14 +34,14 @@ while($row = $result->fetch_assoc()) {
 
     else {
         session_destroy();
-    	echo "<script type='text/javascript'>alert('Wrong login credinals'); </script>";
+    	echo "<script type='text/javascript'>alert('Wrong login credentials'); </script>";
         echo '<script type="text/javascript"> location.href = "faculty_login.php" </script>';
     }
 }
 }
 else {
       session_destroy();
-      echo "<script type='text/javascript'>alert('Wrong login credinals'); </script>";
+      echo "<script type='text/javascript'>alert('Wrong login credentials'); </script>";
       echo '<script type="text/javascript"> location.href = "faculty_login.php" </script>';
 }
 
