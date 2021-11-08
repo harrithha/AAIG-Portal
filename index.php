@@ -38,6 +38,16 @@ password VARCHAR(20)
 
 $conn->query($sql);
 
+$sql = "INSERT INTO admin (username, password) VALUES ('IITDH','pass#123')";
+
+ if ($conn->query($sql) === TRUE) {
+//   echo "<script type='text/javascript'>alert('New Record Created Successfully !'); </script>";
+//   echo '<script type="text/javascript"> location.href = "admin.php" </script>';
+//   exit();
+} else {
+//  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+    
 
 $sql = "CREATE TABLE student (
 rollNo INT PRIMARY KEY ,

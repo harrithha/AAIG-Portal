@@ -85,7 +85,6 @@ $conn = new mysqli($host, $username, $password, $dbname);
     <form action="admin_view_attendance.php" method="post"> 
     <div class="b" style="display: flex; justify-content: space-evenly;">
      <button type="submit" class="btn btn-outline-dark">BACK</button></center>
-     <button type="submit" onclick="ExportToExcel('xlsx')" class="btn btn-outline-dark">DOWNLOAD EXCEL REPORT</button>
      </div>
     </form>
 
