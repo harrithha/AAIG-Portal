@@ -49,6 +49,15 @@ attendance.
 
 
 ## Steps to get the project up and running
+
+#From Zip Folder : 
+1. In the project directory, create two folders namely, *images_student* and *images_faculty*, if not present already.
+2. In any web broswer, type this URL : http://localhost/index.php
+3. This will direct you to the landing/home page of the portal.
+4. In order to create a new student and faculty for running the application and understanding its functionalities, go to admin tab.
+5. Admin credentials are set to username - IITDH, password : pass#123
+
+#From this repo :
 1. Make sure you have the respective server configured in your machine for running LAMP Technologies (ex: XAMPP for windows, Apache for Linux, etc).
 2. Create a new folder on your PC/Laptop in the directory (ex: htdocs for Windows) and open it in any code editor.
 3. Run the following command in the terminal :  git clone https://github.com/harrithha/AAIG-Portal.git
