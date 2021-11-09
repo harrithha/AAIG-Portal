@@ -17,7 +17,7 @@ if(!isset($_SESSION['logged_in__admin_name'])){
 	<link rel="icon" type="image/png" href="images_add/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor_add/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
+<!--================================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts_add/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts_add/iconic/css/material-design-iconic-font.min.css">
