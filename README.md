@@ -9,7 +9,7 @@ organization to record attendance,  generate respective excel reports, generate 
 students can register to different courses offered by the faculty. The web application 
 is to be used by students, faculty, and admin personnel.
 
-
+![image](https://user-images.githubusercontent.com/76431379/140862129-e69bc7f3-5fab-4a66-a95c-575b213ae94a.png)
 
 ## Features
 
@@ -51,10 +51,9 @@ attendance.
 ## Steps to get the project up and running
 1. Make sure you have the respective server configured in your machine for running LAMP Technologies (ex: XAMPP for windows, Apache for Linux, etc).
 2. Create a new folder on your PC/Laptop in the directory (ex: htdocs for Windows) and open it in any code editor.
-3. Give the following command in the terminal : 
-  • git clone
+3. Run the following command in the terminal :  git clone https://github.com/harrithha/AAIG-Portal.git
 4. In any web broswer, type this URL : http://localhost/index.php
-5. This will be the landing/home page of the portal.
+5. This will direct you to the landing/home page of the portal.
 6. In order to create a new student and faculty for running the application and understanding its functionalities, go to admin tab.
 7. Admin credentials are set to username - IITDH, password : pass#123
 
