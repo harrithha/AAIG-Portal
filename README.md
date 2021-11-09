@@ -1,11 +1,11 @@
 
 # Automated Attendance and ID Card Generating Portal (AAIG Portal)
 
-AAIG portal is a website useful for an university or college management for neat and proper 
-organization of information and detials of professors or faculty members and students. 
+AAIG portal is a website useful for university or college management for neat and proper 
+organization of information and details of professors, faculty members and students. 
 
 AAIG is an automated attendance system that consists of a web system for entire 
-organization to record attendance, generates ID card for student and faculty members and 
+organization to record attendance,  generate respective excel reports, generate ID card for student and faculty members and 
 students can register to different courses offered by the faculty. The web application 
 is to be used by students, faculty, and admin personnel.
 
@@ -48,12 +48,22 @@ the course, his name will appear for attendance whenever a faculty logs in to re
 attendance.
 
 
+## Steps to get the project up and running
+1. Make sure you have the respective server configured in your machine for running LAMP Technologies (ex: XAMPP for windows, Apache for Linux, etc).
+2. Create a new folder on your PC/Laptop in the directory (ex: htdocs for Windows) and open it in any code editor.
+3. Give the following command in the terminal : 
+  • git clone
+4. In any web broswer, type this URL : http://localhost/index.php
+5. This will be the landing/home page of the portal.
+6. In order to create a new student and faculty for running the application and understanding its functionalities, go to admin tab.
+7. Admin credentials are set to username - IITDH, password : pass#123
+
+
 ## Authors
 
 - [@harrithha](https://github.com/harrithha)
 - [@chidaksh](https://github.com/chidaksh)
 - [@arvind](https://github.com/Arvind-kumar-M-08)
-
 
 
 ## Demo
