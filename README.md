@@ -59,6 +59,38 @@ attendance.
 8. Admin credentials are set to username - IITDH, password : pass#123
 
 
+## Common Issues faced 
+
+There were many issues faced by us in the course of making this Portal , here we are attaching 
+some issues with their possible reasons and some ways to overcome them.
+
+#### Unable to see the uploaded images on the ID card or in the respective images folder:
+
+If you are facing this issue on a Linux System one
+of the major causes for this would be **not giving write 
+permission to the files**
+
+To check the file permissions for the
+existing files you can use following command
+
+``` bash
+ls -la
+```
+To give write permission for a specific group use
+```bash
+chmod -R g+w <directory>
+```
+Or u can use one of the following commands
+to give general permissions to root user and group
+``` bash
+chmod -R 776 <directory>
+```
+In case after using above command if you are not able to access the directory 
+due to lack of permission use of the folling command
+```bash
+sudo chmod -R 776 <directory>
+```
+
 ## Authors
 
 - [@harrithha](https://github.com/harrithha)
